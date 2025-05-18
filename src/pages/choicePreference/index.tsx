@@ -3,9 +3,15 @@ import * as _ from './style';
 
 const ChoicePreference = () => {
     return(
-        <main>
+        <>
             <HeaderBar text={"Music Style"}/>
-        </main>
+            <_.Container>
+                <_.MusicSelectBox>dd</_.MusicSelectBox>
+                <_.SearchBar>dd</_.SearchBar>
+                <_.ListBar>dd</_.ListBar>
+                <_.SubText>Your playlist changes with your style.</_.SubText>
+            </_.Container>
+        </>
     );
 }
 
