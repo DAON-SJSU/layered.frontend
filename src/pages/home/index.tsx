@@ -8,7 +8,9 @@ const Home = () => {
                 <img src={title} style={_.titleStyle}/>
             </_.TitleBox>
             <_.Card>
-                This is home    
+                <_.CardInner>
+                    
+                </_.CardInner>
             </_.Card>
         </_.Container>
     );

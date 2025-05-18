@@ -11,10 +11,6 @@ export const Container = styled.div`
 `
 
 export const Card = styled.section`
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--Gap-24);
     width: 100%;
     border-radius: var(--Radius-14);
     background: var(--Surface-Surface-20);
@@ -29,3 +25,12 @@ export const titleStyle = {
     height: '100%',
     width: 'auto',
 }
+
+export const CardInner = styled.section`
+    display: flex;
+    flex-direction: column;
+    gap: var(--Gap-24);
+    width: 100%;
+    height: auto;
+    margin: 16px;
+`
