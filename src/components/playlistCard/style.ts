@@ -67,3 +67,35 @@ export const SectionSecond = styled.div`
     align-items: center;
     align-self: stretch;
 `
+
+export const MakePlaylistBtn = styled.button`
+    display: flex;
+    padding: 16px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+    border-radius: 16px;
+    border: 1px solid var(--Stroke-Stroke-10-Translucence, rgba(146, 155, 173, 0.20));
+    background: var(--Surface-Surface-30, #E6E9F0);
+    height: 52px;
+    width: 100%;
+`
+
+export const BtnTitleStyle = styled.h2 `
+    color: var(--Grayscale-Grayscale-80);
+    text-align: center;
+    font-family: "Wanted Sans";
+    font-size: var(--Body-Body-2-Size, 16px);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+`
+
+export const BtnImg = styled.img `
+    height: 60%;
+    width: auto;
+    max-width: 40%;
+    display: block;
+    object-fit: contain;
+`
