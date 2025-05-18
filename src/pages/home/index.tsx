@@ -4,6 +4,9 @@ const Home = () => {
     return(
         <_.Container>
             This is home
+            <_.Card>
+                
+            </_.Card>
         </_.Container>
     );
 }
