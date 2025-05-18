@@ -23,7 +23,11 @@ const ChoicePreference = () => {
                     <_.TextInput type='text' placeholder='Search'></_.TextInput>
                     <span className="material-symbols-outlined" style={_.searchIcon}>search</span>
                 </_.SearchBar>
-                <_.ListBar>dd</_.ListBar>
+                <_.TypeBox>
+                    <_.TypeLine>
+                        
+                    </_.TypeLine>
+                </_.TypeBox>
                 <_.SubText>Your playlist changes with your style.</_.SubText>
             </_.Container>
         </>

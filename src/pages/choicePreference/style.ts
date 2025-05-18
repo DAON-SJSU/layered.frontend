@@ -37,16 +37,6 @@ export const SearchBar = styled.div`
     background: var(--Surface-Surface-10);
 `
 
-export const ListBar = styled.div`
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: var(--Gap-12);
-    background: var(--Surface-Surface-10);
-`
-
 export const SubText = styled.p`
     color: var(--Text-Text-20);
     font-family: Poppins;
@@ -124,3 +114,20 @@ export const searchIcon = {
     fontWeight: '300',
     lineHeight: '100%'
 }
+
+export const TypeBox = styled.div`
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--Gap-12);
+`
+
+export const TypeLine = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--Gap-8);
+`
+
