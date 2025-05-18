@@ -1,8 +1,12 @@
 import * as _ from './style';
 import yb from '../../assets/blocks/y&b.png';
 import playlistbtn from '../../assets/icons/PlaylistIcon.png';
+import { useNavigate } from 'react-router-dom';
+
 
 const PlaylistCard = () =>{
+    const navigate = useNavigate();
+
     return(
         <_.Card>
             <_.Section>
@@ -14,7 +18,7 @@ const PlaylistCard = () =>{
                     <_.BlockImg src={yb} />
                 </_.SectionFirst>
                 <_.SectionSecond>
-                    <_.MakePlaylistBtn>
+                    <_.MakePlaylistBtn onClick={()=>{navigate('/palette')}}>
                         <_.BtnTitleStyle>
                             Let’s Make The Playlist
                         </_.BtnTitleStyle>
