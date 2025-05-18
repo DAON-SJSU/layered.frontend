@@ -1,55 +1,64 @@
 import HeaderBar from '../../components/headerBar/index';
 import MusicType from '../../components/musicType';
+import SubmitBtn from '../../components/submitBtn';
 import * as _ from './style';
 
 const ChoicePreference = () => {
-    return(
+    return (
         <>
-            <HeaderBar text={"Music Style"}/>
+            <HeaderBar text={"Music Style"} />
             <_.Container>
-                <_.MusicSelectBox>
-                    <_.Musics>
-                        <_.Music>1</_.Music>
-                        <_.Music>2</_.Music>
-                        <_.Music>3</_.Music>
-                        <_.Music>4</_.Music>
-                    </_.Musics>
-                    <_.TextBox>
-                        <_.TextBoxH2>What’s your music style?</_.TextBoxH2>
-                        <_.TextBoxP>Pick four things you usually listen to</_.TextBoxP>
-                    </_.TextBox>
-                </_.MusicSelectBox>
+                <_.sectionFrist>
+                    <_.SectionFirstDiv>
+                        <_.MusicSelectBox>
+                            <_.Musics>
+                                <_.Music>1</_.Music>
+                                <_.Music>2</_.Music>
+                                <_.Music>3</_.Music>
+                                <_.Music>4</_.Music>
+                            </_.Musics>
+                            <_.TextBox>
+                                <_.TextBoxH2>What’s your music style?</_.TextBoxH2>
+                                <_.TextBoxP>Pick four things you usually listen to</_.TextBoxP>
+                            </_.TextBox>
+                        </_.MusicSelectBox>
 
-                <_.SearchBar>
-                    <_.TextInput type='text' placeholder='Search'></_.TextInput>
-                    <span className="material-symbols-outlined" style={_.searchIcon}>search</span>
-                </_.SearchBar>
-                <_.TypeBox>
-                    <_.TypeLine>
-                        <MusicType music={"electronic"}></MusicType>
-                        <MusicType music={"rap"}></MusicType>
-                        <MusicType music={"trap"}></MusicType>
-                        <MusicType music={"funk"}></MusicType>
-                        <MusicType music={"heavy metal"}></MusicType>
-                        <MusicType music={"heavy metal"}></MusicType>
-                    </_.TypeLine>
-                    <_.TypeLine>
-                        <MusicType music={"electronic"}></MusicType>
-                        <MusicType music={"funk"}></MusicType>
-                        <MusicType music={"trap"}></MusicType>
-                        <MusicType music={"heavy metal"}></MusicType>
-                        <MusicType music={"J-POP"}></MusicType>
-                    </_.TypeLine>
-                    <_.TypeLine>
-                        <MusicType music={"electronic"}></MusicType>
-                        <MusicType music={"rap"}></MusicType>
-                        <MusicType music={"trap"}></MusicType>
-                        <MusicType music={"funk"}></MusicType>
-                        <MusicType music={"heavy metal"}></MusicType>
-                    </_.TypeLine>
-                </_.TypeBox>
-                <_.SubText>Your playlist changes with your style.</_.SubText>
+                        <_.SearchBar>
+                            <_.TextInput type='text' placeholder='Search'></_.TextInput>
+                            <span className="material-symbols-outlined" style={_.searchIcon}>search</span>
+                        </_.SearchBar>
+                        <_.TypeBox>
+                            <_.TypeLine>
+                                <MusicType music={"electronic"}></MusicType>
+                                <MusicType music={"rap"}></MusicType>
+                                <MusicType music={"trap"}></MusicType>
+                                <MusicType music={"funk"}></MusicType>
+                                <MusicType music={"heavy metal"}></MusicType>
+                                <MusicType music={"heavy metal"}></MusicType>
+                            </_.TypeLine>
+                            <_.TypeLine>
+                                <MusicType music={"electronic"}></MusicType>
+                                <MusicType music={"funk"}></MusicType>
+                                <MusicType music={"trap"}></MusicType>
+                                <MusicType music={"heavy metal"}></MusicType>
+                                <MusicType music={"J-POP"}></MusicType>
+                            </_.TypeLine>
+                            <_.TypeLine>
+                                <MusicType music={"electronic"}></MusicType>
+                                <MusicType music={"rap"}></MusicType>
+                                <MusicType music={"trap"}></MusicType>
+                                <MusicType music={"funk"}></MusicType>
+                                <MusicType music={"heavy metal"}></MusicType>
+                            </_.TypeLine>
+                        </_.TypeBox>
+                        <_.SubText>Your playlist changes with your style.</_.SubText>
+                    </_.SectionFirstDiv>
+                </_.sectionFrist>
+                <_.SubmitBtnContainer>
+                    <SubmitBtn text={"Go To Next"} icon={"arrow_forward"} />
+                </_.SubmitBtnContainer>
             </_.Container>
+
         </>
     );
 }

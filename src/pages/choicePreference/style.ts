@@ -12,6 +12,27 @@ export const Container = styled.div`
     height: auto;
 `
 
+export const sectionFrist = styled.section`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--Gap-48);
+    flex: 1 0 0;
+    align-self: stretch;
+`
+
+export const SectionFirstDiv = styled.div`
+    width: 100%;
+    height: 630px;
+    box-sizing : border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--Gap-24);
+`
+
 export const MusicSelectBox = styled.div`
     display: flex;
     box-sizing: border-box;
@@ -127,7 +148,7 @@ export const TypeBox = styled.div`
 
 export const TypeLine = styled.div`
     display: flex;
-    justify-content: flex-start;s
+    justify-content: flex-start;
     align-items: center;
     gap: var(--Gap-8);
     overflow-x: auto;
@@ -140,3 +161,12 @@ export const TypeLine = styled.div`
     }
 `
 
+export const SubmitBtnContainer = styled.div`
+    position: sticky;
+    margin: 20px;
+    bottom: 24px;
+    width: 100%;
+    background: linear-gradient(to top, white 60%, transparent);
+    display: flex;
+    justify-content: center;
+`
