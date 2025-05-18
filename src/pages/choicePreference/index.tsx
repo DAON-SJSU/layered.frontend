@@ -1,4 +1,5 @@
 import HeaderBar from '../../components/headerBar/index';
+import MusicType from '../../components/musicType';
 import * as _ from './style';
 
 const ChoicePreference = () => {
@@ -25,7 +26,26 @@ const ChoicePreference = () => {
                 </_.SearchBar>
                 <_.TypeBox>
                     <_.TypeLine>
-                        
+                        <MusicType music={"electronic"}></MusicType>
+                        <MusicType music={"rap"}></MusicType>
+                        <MusicType music={"trap"}></MusicType>
+                        <MusicType music={"funk"}></MusicType>
+                        <MusicType music={"heavy metal"}></MusicType>
+                        <MusicType music={"heavy metal"}></MusicType>
+                    </_.TypeLine>
+                    <_.TypeLine>
+                        <MusicType music={"electronic"}></MusicType>
+                        <MusicType music={"funk"}></MusicType>
+                        <MusicType music={"trap"}></MusicType>
+                        <MusicType music={"heavy metal"}></MusicType>
+                        <MusicType music={"J-POP"}></MusicType>
+                    </_.TypeLine>
+                    <_.TypeLine>
+                        <MusicType music={"electronic"}></MusicType>
+                        <MusicType music={"rap"}></MusicType>
+                        <MusicType music={"trap"}></MusicType>
+                        <MusicType music={"funk"}></MusicType>
+                        <MusicType music={"heavy metal"}></MusicType>
                     </_.TypeLine>
                 </_.TypeBox>
                 <_.SubText>Your playlist changes with your style.</_.SubText>

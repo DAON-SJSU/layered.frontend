@@ -6,6 +6,9 @@ export const TypeContainer = styled.div`
     padding: var(--Gap-8) var(--Gap-16);
     justify-content: center;
     align-items: center;
+    border-radius: var(--Radius-Max);
+    background: var(--Surface-Surface-10);
+    flex-shrink: 0;
 `
 
 export const TypeText = styled.p`

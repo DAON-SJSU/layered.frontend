@@ -1,11 +1,15 @@
 import * as _ from './style';
 
-const musicType = () => {
+interface MusicTypeProps{
+    music : String;
+}
+
+const MusicType = ({ music } : MusicTypeProps) => {
     return (
         <_.TypeContainer>
-            <_.TypeText>electronic</_.TypeText>
+            <_.TypeText>{music}</_.TypeText>
         </_.TypeContainer>
     );
 }
 
-export default musicType;
+export default MusicType;

@@ -122,12 +122,21 @@ export const TypeBox = styled.div`
     justify-content: center;
     align-items: center;
     gap: var(--Gap-12);
+    overflow-x: visible;
 `
 
 export const TypeLine = styled.div`
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;s
     align-items: center;
     gap: var(--Gap-8);
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none; 
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
 `
 
