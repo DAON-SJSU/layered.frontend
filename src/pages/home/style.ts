@@ -22,4 +22,10 @@ export const Card = styled.section`
 
 export const TitleBox = styled.section`
     width:100%;
+    height: 66px;
 `
+
+export const titleStyle = {
+    height: '100%',
+    width: 'auto',
+}

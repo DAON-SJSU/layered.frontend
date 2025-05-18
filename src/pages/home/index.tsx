@@ -5,7 +5,7 @@ const Home = () => {
     return(
         <_.Container>
             <_.TitleBox>
-                <img src={title}/>
+                <img src={title} style={_.titleStyle}/>
             </_.TitleBox>
             <_.Card>
                 This is home    
