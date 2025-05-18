@@ -4,7 +4,7 @@ import * as _ from './style';
 const Layout = () => {
     return(
         <_.Mobile>
-            This is layout
+            <_.Void />
             <Outlet/>
         </_.Mobile>
     )

@@ -10,3 +10,8 @@ export const Mobile = styled.main`
     padding: 24px;
     box-sizing: border-box;
 `
+
+export const Void = styled.div`
+    width:100%;
+    height: 47px;
+`
