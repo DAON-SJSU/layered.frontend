@@ -4,7 +4,7 @@ import * as _ from './style';
 const ChoicePreference = () => {
     return(
         <main>
-            <HeaderBar text={"Home"}/>
+            <HeaderBar text={"Music Style"}/>
         </main>
     );
 }
