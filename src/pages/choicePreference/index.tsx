@@ -5,7 +5,7 @@ const ChoicePreference = () => {
         <main>
             <_.Header>
                 <span className="material-symbols-outlined" style={_.undoStyle}>undo</span>
-                <p>Home</p>
+                <_.HeaderP>Home</_.HeaderP>
             </_.Header>
         </main>
     );
