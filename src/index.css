@@ -5,8 +5,12 @@
 
 :root{
   --Surface-Surface-20 : #F0F2F5;
+  --Gap-8 : 8px;
+  --Gap-16 : 16px;
   --Gap-20 : 20px;
   --Gap-24 : 24px;
   --Radius-14 : 14px;
   --Background : linear-gradient(180deg, #F8E8EE 0.01%, #E6E6FA 50%, #D2E1FF 99.99%);
+  --Grayscale-Grayscale-80 : #212329;
+  --Grayscale-Grayscale-60 : #5D677A;
 }

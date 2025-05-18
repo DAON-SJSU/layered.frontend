@@ -9,7 +9,17 @@ const Home = () => {
             </_.TitleBox>
             <_.Card>
                 <_.CardInner>
-                    
+                    <_.SectionFirst>
+                        <_.SectionFirstDiv1>
+                            <_.TextBox>
+                                <_.TextBoxP>About</_.TextBoxP>
+                                <_.TextBoxH2>LAYERED is ...</_.TextBoxH2>
+                            </_.TextBox>
+                        </_.SectionFirstDiv1>
+                        <_.SectionFirstDiv2>
+
+                        </_.SectionFirstDiv2>
+                    </_.SectionFirst>
                 </_.CardInner>
             </_.Card>
         </_.Container>
