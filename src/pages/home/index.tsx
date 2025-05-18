@@ -2,6 +2,7 @@ import * as _ from "./style";
 import title from '../../assets/home/HomeTitle.png';
 import blocks from '../../assets/blocks/Blocks.png';
 import plus from '../../assets/icons/PlusIcon.png';
+import PlaylistCard from "../../components/playlistCard";
 
 const Home = () => {
     return (
@@ -37,6 +38,9 @@ const Home = () => {
                     </_.SectionSecond>
                 </_.CardInner>
             </_.Card>
+
+            <PlaylistCard />
+            <PlaylistCard />
         </_.Container>
     );
 }
