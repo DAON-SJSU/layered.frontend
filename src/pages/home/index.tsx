@@ -1,10 +1,11 @@
 import * as _ from "./style";
+import title from '../../assets/home/HomeTitle.png';
 
 const Home = () => {
     return(
         <_.Container>
             <_.TitleBox>
-                <img src=""/>
+                <img src={title}/>
             </_.TitleBox>
             <_.Card>
                 This is home    
