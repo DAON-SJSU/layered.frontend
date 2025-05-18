@@ -23,13 +23,18 @@ const Home = () => {
 
                         <_.SectionFirstDiv2>
                             <_.GrayCard>Color</_.GrayCard>
-                            <_.PlusImg src={plus}/>
+                            <_.PlusImg src={plus} />
                             <_.GrayCard>Emotion</_.GrayCard>
-                            <_.PlusImg src={plus}/>
+                            <_.PlusImg src={plus} />
                             <_.GrayCard>Music</_.GrayCard>
                         </_.SectionFirstDiv2>
 
                     </_.SectionFirst>
+                    <_.SectionSecond>
+                        <_.GrayCard2>We understand that emotions come in layers.
+                            That’s why we recommend music that reflects,
+                            supports, and releases how you feel.</_.GrayCard2>
+                    </_.SectionSecond>
                 </_.CardInner>
             </_.Card>
         </_.Container>

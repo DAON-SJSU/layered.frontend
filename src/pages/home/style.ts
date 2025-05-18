@@ -115,3 +115,23 @@ export const PlusImg = styled.img`
     display: block;
     object-fit: contain;
 `
+
+export const SectionSecond = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--Gap-16);
+    align-self: stretch;    
+`
+
+export const GrayCard2 = styled.div`
+    border-radius: var(--Radius-8, 8px);
+    background: var(--Grayscale-Translucence-Grayscale-50-Translucence);
+    color: var(--Grayscale-Grayscale-80);
+    padding: var(--Gap-12) var(--Gap-16);
+    font-family: Poppins;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+`
