@@ -9,6 +9,7 @@ export const Mobile = styled.main`
     margin: 0 auto;
     background: var(--Background);
     padding: 24px;
+    padding-top : 0px;
     box-sizing: border-box;
 `
 

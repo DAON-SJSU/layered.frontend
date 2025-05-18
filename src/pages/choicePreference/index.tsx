@@ -1,9 +1,13 @@
+import * as _ from './style';
 
 const ChoicePreference = () => {
     return(
-        <div>
-            choicePreference Page
-        </div>
+        <main>
+            <_.Header>
+                <span className="material-symbols-outlined" style={_.undoStyle}>undo</span>
+                <p>Home</p>
+            </_.Header>
+        </main>
     );
 }
 

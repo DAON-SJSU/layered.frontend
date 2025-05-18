@@ -18,7 +18,7 @@ const PlaylistCard = () =>{
                     <_.BlockImg src={yb} />
                 </_.SectionFirst>
                 <_.SectionSecond>
-                    <_.MakePlaylistBtn onClick={()=>{navigate('/palette')}}>
+                    <_.MakePlaylistBtn onClick={()=>{navigate('/choicePreference')}}>
                         <_.BtnTitleStyle>
                             Let’s Make The Playlist
                         </_.BtnTitleStyle>

@@ -7,6 +7,7 @@ export const Container = styled.div`
     gap: var(--Gap-20);
     flex: 1 0 0;
     align-self: stretch;
+    padding: 24px 0;
 `
 
 export const Card = styled.section`
