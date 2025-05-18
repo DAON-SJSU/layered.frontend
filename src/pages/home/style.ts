@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
 
 export const Container = styled.div`
-    margin: 24px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -12,8 +11,10 @@ export const Container = styled.div`
 
 export const Card = styled.section`
     width: 100%;
+    box-sizing: border-box;
     border-radius: var(--Radius-14);
     background: var(--Surface-Surface-20);
+    padding: 16px;
 `
 
 export const TitleBox = styled.section`
@@ -32,7 +33,6 @@ export const CardInner = styled.div`
     gap: var(--Gap-24);
     width: 100%;
     height: auto;
-    margin: 16px;
 `
 
 export const SectionFirst = styled.section`
@@ -46,10 +46,12 @@ export const SectionFirst = styled.section`
 export const SectionFirstDiv1 = styled.div`
     display: flex;
     height: 74px;
-    padding: var(--Gap-8);
+    width: 100%;
+    box-sizing: border-box;
     justify-content: space-between;
     align-items: center;
-    align-self: stretch;    
+    align-self: stretch;
+    overflow: hidden;
 `
 
 export const SectionFirstDiv2 = styled.div`
@@ -63,7 +65,7 @@ export const TextBox = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: var(--Gap-8, 8px);
+    gap: var(--Gap-8);
 `
 
 export const TextBoxH2 = styled.h2`
@@ -84,4 +86,12 @@ export const TextBoxP = styled.p`
     font-style: normal;
     font-weight: 400;
     line-height: 130%;
+`
+
+export const BlockImg = styled.img`
+    height: 100%;
+    width: auto;
+    max-width: 40%;
+    display: block;
+    object-fit: contain;
 `

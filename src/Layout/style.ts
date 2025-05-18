@@ -7,4 +7,5 @@ export const Mobile = styled.main`
     max-width: 430px;
     margin: 0 auto;
     background: var(--Background);
+    padding: 24px;
 `
