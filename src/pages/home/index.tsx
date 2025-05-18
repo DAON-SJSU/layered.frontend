@@ -11,6 +11,7 @@ const Home = () => {
             <_.Card>
                 <_.CardInner>
                     <_.SectionFirst>
+                        
                         <_.SectionFirstDiv1>
                             <_.TextBox>
                                 <_.TextBoxP>About</_.TextBoxP>
@@ -18,6 +19,7 @@ const Home = () => {
                             </_.TextBox>
                             <_.BlockImg src={blocks}/>
                         </_.SectionFirstDiv1>
+
                         <_.SectionFirstDiv2>
 
                         </_.SectionFirstDiv2>
