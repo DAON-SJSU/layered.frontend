@@ -101,3 +101,26 @@ export const TextBoxP = styled.p`
     font-weight: 400;
     line-height: 130%;
 `
+
+export const TextInput = styled.input`
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    width:100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    line-height: 18px;
+    &::placeholder {
+        color: var(--Text-Text-30);
+    }
+`
+
+export const searchIcon = {
+    color: 'var(--Text-Text-30)',
+    fontSize: '20px',
+    fontStyle: 'normal',
+    fontWeight: '300',
+    lineHeight: '100%'
+}

@@ -18,7 +18,11 @@ const ChoicePreference = () => {
                         <_.TextBoxP>Pick four things you usually listen to</_.TextBoxP>
                     </_.TextBox>
                 </_.MusicSelectBox>
-                <_.SearchBar>dd</_.SearchBar>
+
+                <_.SearchBar>
+                    <_.TextInput type='text' placeholder='Search'></_.TextInput>
+                    <span className="material-symbols-outlined" style={_.searchIcon}>search</span>
+                </_.SearchBar>
                 <_.ListBar>dd</_.ListBar>
                 <_.SubText>Your playlist changes with your style.</_.SubText>
             </_.Container>
