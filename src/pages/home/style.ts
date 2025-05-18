@@ -10,7 +10,7 @@ export const Container = styled.div`
     align-self: stretch;
 `
 
-export const Card = styled.div`
+export const Card = styled.section`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -18,4 +18,8 @@ export const Card = styled.div`
     width: 100%;
     border-radius: var(--Radius-14);
     background: var(--Surface-Surface-20);
+`
+
+export const TitleBox = styled.section`
+    width:100%;
 `
