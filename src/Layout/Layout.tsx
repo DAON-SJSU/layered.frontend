@@ -1,11 +1,12 @@
 import { Outlet } from "react-router-dom"
+import * as _ from './style';
 
 const Layout = () => {
     return(
-        <main>
-            This is layout
+        <_.Mobile>
+            <_.Void />
             <Outlet/>
-        </main>
+        </_.Mobile>
     )
 }
 
