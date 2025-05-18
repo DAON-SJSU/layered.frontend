@@ -6,7 +6,18 @@ const ChoicePreference = () => {
         <>
             <HeaderBar text={"Music Style"}/>
             <_.Container>
-                <_.MusicSelectBox>dd</_.MusicSelectBox>
+                <_.MusicSelectBox>
+                    <_.Musics>
+                        <_.Music>1</_.Music>
+                        <_.Music>2</_.Music>
+                        <_.Music>3</_.Music>
+                        <_.Music>4</_.Music>
+                    </_.Musics>
+                    <_.TextBox>
+                        <_.TextBoxH2>What’s your music style?</_.TextBoxH2>
+                        <_.TextBoxP>Pick four things you usually listen to</_.TextBoxP>
+                    </_.TextBox>
+                </_.MusicSelectBox>
                 <_.SearchBar>dd</_.SearchBar>
                 <_.ListBar>dd</_.ListBar>
                 <_.SubText>Your playlist changes with your style.</_.SubText>

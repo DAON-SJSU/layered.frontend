@@ -55,3 +55,49 @@ export const SubText = styled.p`
     font-weight: 400;
     line-height: 130%;
 `
+
+export const Musics = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+`
+
+export const Music = styled.div`
+    display: flex;
+    width: 39px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 39/40;
+    border-radius: var(--Radius-Max);
+    background: var(--Surface-Surface-30);
+`
+
+export const TextBox = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--Gap-8);
+`
+
+export const TextBoxH2 = styled.h2`
+    color: var(--Text-Text-10);
+
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: -0.4px;
+`
+
+export const TextBoxP = styled.p`
+    color: var(--Text-Text-30);
+
+    font-family: Poppins;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+`
