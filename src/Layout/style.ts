@@ -8,4 +8,5 @@ export const Mobile = styled.main`
     margin: 0 auto;
     background: var(--Background);
     padding: 24px;
+    box-sizing: border-box;
 `

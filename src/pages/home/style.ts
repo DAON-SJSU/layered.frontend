@@ -95,3 +95,23 @@ export const BlockImg = styled.img`
     display: block;
     object-fit: contain;
 `
+
+export const GrayCard = styled.div`
+    border-radius: var(--Radius-8, 8px);
+    background: var(--Grayscale-Translucence-Grayscale-50-Translucence);
+    color: var(--Grayscale-Grayscale-80);
+    padding: var(--Gap-6) var(--Gap-16);
+    font-family: Poppins;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+`
+
+export const PlusImg = styled.img`
+    height: 40%;
+    width: auto;
+    max-width: 40%;
+    display: block;
+    object-fit: contain;
+`
