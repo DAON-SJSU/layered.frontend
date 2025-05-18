@@ -1,4 +1,4 @@
-import HeaderBar from '../../components/common/headerBar';
+import HeaderBar from '../../components/headerBar/index';
 import * as _ from './style';
 
 const ChoicePreference = () => {
