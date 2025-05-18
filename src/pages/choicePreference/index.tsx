@@ -1,12 +1,10 @@
+import HeaderBar from '../../components/common/headerBar';
 import * as _ from './style';
 
 const ChoicePreference = () => {
     return(
         <main>
-            <_.Header>
-                <span className="material-symbols-outlined" style={_.undoStyle}>undo</span>
-                <_.HeaderP>Home</_.HeaderP>
-            </_.Header>
+            <HeaderBar text={"Home"}/>
         </main>
     );
 }
