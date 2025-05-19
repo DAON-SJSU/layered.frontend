@@ -83,7 +83,7 @@ const ChoicePreference = () => {
                     </_.SectionFirstDiv>
                 </_.sectionFrist>
                 <_.SubmitBtnContainer>
-                    <SubmitBtn text={"Go To Next"} icon={"arrow_forward"} src={''}/>
+                    <SubmitBtn text={"Go To Next"} icon={"arrow_forward"} src={'choiceTempo'}/>
                 </_.SubmitBtnContainer>
             </_.Container>
         </>
