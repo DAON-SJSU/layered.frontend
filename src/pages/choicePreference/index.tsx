@@ -2,8 +2,20 @@ import HeaderBar from '../../components/headerBar/index';
 import MusicType from '../../components/musicType';
 import SubmitBtn from '../../components/submitBtn';
 import * as _ from './style';
+import { musicGenres } from './data';
+
+
+const splitMusicList = (list: string[], n: number) => {
+    const len = Math.ceil(list.length / n);
+    return Array.from({ length: n }, (_, i) =>
+        list.slice(i * len, (i + 1) * len)
+    );
+};
 
 const ChoicePreference = () => {
+    const musicList = musicGenres;
+    const lines = splitMusicList([...musicList, ...musicList], 3);
+
     return (
         <>
             <HeaderBar text={"Music Style"} />
@@ -27,30 +39,17 @@ const ChoicePreference = () => {
                             <_.TextInput type='text' placeholder='Search'></_.TextInput>
                             <span className="material-symbols-outlined" style={_.searchIcon}>search</span>
                         </_.SearchBar>
-                        <_.TypeBox>
-                            <_.TypeLine>
-                                <MusicType music={"electronic"}></MusicType>
-                                <MusicType music={"rap"}></MusicType>
-                                <MusicType music={"trap"}></MusicType>
-                                <MusicType music={"funk"}></MusicType>
-                                <MusicType music={"heavy metal"}></MusicType>
-                                <MusicType music={"heavy metal"}></MusicType>
-                            </_.TypeLine>
-                            <_.TypeLine>
-                                <MusicType music={"electronic"}></MusicType>
-                                <MusicType music={"funk"}></MusicType>
-                                <MusicType music={"trap"}></MusicType>
-                                <MusicType music={"heavy metal"}></MusicType>
-                                <MusicType music={"J-POP"}></MusicType>
-                            </_.TypeLine>
-                            <_.TypeLine>
-                                <MusicType music={"electronic"}></MusicType>
-                                <MusicType music={"rap"}></MusicType>
-                                <MusicType music={"trap"}></MusicType>
-                                <MusicType music={"funk"}></MusicType>
-                                <MusicType music={"heavy metal"}></MusicType>
-                            </_.TypeLine>
-                        </_.TypeBox>
+
+                        {lines.map((line, i) => (
+                            <_.LoopLineWrapper key={i}>
+                                <_.LoopLine>
+                                    {[...line, ...line].map((music, idx) => (
+                                        <_.MusicType key={idx}>{music}</_.MusicType>
+                                    ))}
+                                </_.LoopLine>
+                            </_.LoopLineWrapper>
+                        ))}
+
                         <_.SubText>Your playlist changes with your style.</_.SubText>
                     </_.SectionFirstDiv>
                 </_.sectionFrist>

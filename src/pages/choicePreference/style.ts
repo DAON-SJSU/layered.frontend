@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { keyframes } from "@emotion/react";
 
 export const Container = styled.div`
     display: flex;
@@ -169,3 +170,39 @@ export const SubmitBtnContainer = styled.div`
     display: flex;
     justify-content: center;
 `
+
+const scrollLoop = keyframes`
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+`;
+
+export const LoopLineWrapper = styled.div`
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+`;
+
+export const LoopLine = styled.div`
+  display: flex;
+  gap: 12px;
+  width: max-content;
+  animation: ${scrollLoop} 15s linear infinite;
+`;
+
+export const MusicType = styled.div`
+    display: inline-block;
+    padding: 8px 16px;
+    background: #fff;
+    border-radius: 20px;
+    font-family: Poppins;
+    font-size: 15px;
+    color: var(--Text-Text-10);
+    font-weight: 500;
+    white-space: nowrap;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+    flex-shrink: 0;
+`;
