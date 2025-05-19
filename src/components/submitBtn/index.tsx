@@ -8,8 +8,6 @@ interface SubmitBtnProps {
 }
 
 const SubmitBtn = ({ text, icon, src }: SubmitBtnProps) => {
-    const navigate = useNavigate();
-
     return (
         <Link to={`/${src}`} style={{ width: "100%", display: "block", textDecoration: "none" }}>
             <_.BtnWrapper>
