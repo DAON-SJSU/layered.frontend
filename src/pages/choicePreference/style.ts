@@ -166,7 +166,6 @@ export const SubmitBtnContainer = styled.div`
     margin: 20px;
     bottom: 24px;
     width: 100%;
-    background: linear-gradient(to top, white 60%, transparent);
     display: flex;
     justify-content: center;
 `

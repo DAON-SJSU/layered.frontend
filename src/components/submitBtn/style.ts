@@ -14,8 +14,6 @@ export const BtnContainer = styled.button`
     padding: var(--Gap-16) var(--Gap-24);
     justify-content: center;
     align-items: center;
-    gap: var(--Gap-8);
-    align-self: stretch;
     border-radius: 16px;
     border: none;
     background: var(--Emotions-Dreamy);
