@@ -1,25 +1,27 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import HeaderBar from '../../components/headerBar/index';
-import MusicType from '../../components/musicType';
 import SubmitBtn from '../../components/submitBtn';
 import * as _ from './style';
 import { musicGenres } from './data';
 
 
 const splitMusicList = (list: string[], n: number) => {
-    const len = Math.ceil(list.length / n);
-    return Array.from({ length: n }, (_, i) =>
-        list.slice(i * len, (i + 1) * len)
-    );
-};
+    const len = Math.ceil(list.length / n); 
+    return Array.from({ length: n }, (_, i) => {
+        const line = list.slice(i * len, (i + 1) * len);
+        console.log(line);
+        return Array.from(new Set(line));
+    });
+}; // list를 3줄로 나누어 출력하기 위한 함수
 
 const ChoicePreference = () => {
     const [search, setSearch] = useState('');
-    // 입력값으로 시작하는 것만 필터링 (대소문자 구분 없이)
+    // 검색 결과 필터링
     const filteredList = musicGenres.filter(item =>
         item.toLowerCase().startsWith(search.toLowerCase())
     );
-    const lines = splitMusicList([...filteredList, ...filteredList], 3);
+    
+    const lines = splitMusicList(filteredList, 3);
 
     return (
         <>
@@ -50,15 +52,19 @@ const ChoicePreference = () => {
                             <span className="material-symbols-outlined" style={_.searchIcon}>search</span>
                         </_.SearchBar>
 
-                        {lines.map((line, i) => (
-                            <_.LoopLineWrapper key={i}>
-                                <_.LoopLine>
-                                    {[...line, ...line].map((music, idx) => (
-                                        <_.MusicType key={idx}>{music}</_.MusicType>
-                                    ))}
-                                </_.LoopLine>
-                            </_.LoopLineWrapper>
-                        ))}
+                        {lines.map((line, i) => {
+                            // line을 두 번 이어붙인 뒤 중복 제거
+                            const uniqueLine = Array.from(new Set([...line, ...line]));
+                            return (
+                                <_.LoopLineWrapper key={i}>
+                                    <_.LoopLine>
+                                        {uniqueLine.map((music, idx) => (
+                                            <_.MusicType key={idx}>{music}</_.MusicType>
+                                        ))}
+                                    </_.LoopLine>
+                                </_.LoopLineWrapper>
+                            );
+                        })}
 
                         <_.SubText>Your playlist changes with your style.</_.SubText>
                     </_.SectionFirstDiv>
@@ -67,7 +73,6 @@ const ChoicePreference = () => {
                     <SubmitBtn text={"Go To Next"} icon={"arrow_forward"} />
                 </_.SubmitBtnContainer>
             </_.Container>
-
         </>
     );
 }
