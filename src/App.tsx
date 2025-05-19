@@ -1,13 +1,28 @@
-import { Route, Routes } from 'react-router-dom';
-import Layout from './Layout/Layout';
-import Home from './pages/home/index';
-import Palette from './pages/palette/index';
-import Playlist from './pages/playlist/index';
-import Result from './pages/result/index';
+import { Route, Routes } from "react-router-dom";
+import { useEffect, useState } from "react";
+import Layout from "./Layout/Layout";
+import Home from "./pages/home/index";
+import Palette from "./pages/palette/index";
+import Playlist from "./pages/playlist/index";
+import Result from "./pages/result/index";
+import Loading from "./pages/loading/index";
 import ChoicePreference from './pages/choicePreference';
 import ChoiceTempo from './pages/choiceTempo';
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
       <Routes>
@@ -23,4 +38,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
