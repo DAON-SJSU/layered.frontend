@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import HeaderBar from '../../components/headerBar/index';
 import MusicType from '../../components/musicType';
 import SubmitBtn from '../../components/submitBtn';
@@ -13,8 +14,12 @@ const splitMusicList = (list: string[], n: number) => {
 };
 
 const ChoicePreference = () => {
-    const musicList = musicGenres;
-    const lines = splitMusicList([...musicList, ...musicList], 3);
+    const [search, setSearch] = useState('');
+    // 입력값으로 시작하는 것만 필터링 (대소문자 구분 없이)
+    const filteredList = musicGenres.filter(item =>
+        item.toLowerCase().startsWith(search.toLowerCase())
+    );
+    const lines = splitMusicList([...filteredList, ...filteredList], 3);
 
     return (
         <>
@@ -36,7 +41,12 @@ const ChoicePreference = () => {
                         </_.MusicSelectBox>
 
                         <_.SearchBar>
-                            <_.TextInput type='text' placeholder='Search'></_.TextInput>
+                            <_.TextInput
+                                type='text'
+                                placeholder='Search'
+                                value={search}
+                                onChange={e => setSearch(e.target.value)}
+                            />
                             <span className="material-symbols-outlined" style={_.searchIcon}>search</span>
                         </_.SearchBar>
 
