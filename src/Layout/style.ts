@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 export const Mobile = styled.main`
-  height: calc(var(--vh, 1vh) * 100);
+  height: max(calc(var(--vh, 1vh) * 100),100%);
   width: 100%;
   max-width: 430px;
   margin: 0 auto;

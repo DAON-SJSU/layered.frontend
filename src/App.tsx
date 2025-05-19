@@ -6,6 +6,8 @@ import Palette from "./pages/palette/index";
 import Playlist from "./pages/playlist/index";
 import Result from "./pages/result/index";
 import Loading from "./pages/loading/index";
+import ChoicePreference from './pages/choicePreference';
+import ChoiceTempo from './pages/choiceTempo';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -23,15 +25,17 @@ function App() {
   }
 
   return (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route path="/palette" element={<Palette />} />
-      </Route>
-      <Route path="/playlist" element={<Playlist />} />
-      <Route path="/result" element={<Result />} />
-    </Routes>
-  );
+      <Routes>
+        <Route path='/' element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path='/palette' element={<Palette />} />
+          <Route path='choicePreference' element={<ChoicePreference />} />
+          <Route path='choiceTempo' element={<ChoiceTempo />} />
+        </Route>
+        <Route path='/playlist' element={<Playlist />} />
+        <Route path='/result' element={<Result />} />
+      </Routes>
+  )
 }
 
 export default App;

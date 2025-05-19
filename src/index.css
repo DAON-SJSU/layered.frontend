@@ -4,21 +4,43 @@
 }
 html, body {
   width: 100%;
+  height: 100vh;
   overflow-x: hidden;
   box-sizing: border-box;
+  background: linear-gradient(180deg, #F8E8EE 0.01%, #E6E6FA 50%, #D2E1FF 99.99%);
 }
 
 :root{
+  --Surface-Surface-10: #FFF;
   --Surface-Surface-20 : #F0F2F5;
+  --Surface-Surface-30 : #E6E9F0;
+
+  --Background : linear-gradient(180deg, #F8E8EE 0.01%, #E6E6FA 50%, #D2E1FF 99.99%);
+
   --Gap-6 : 6px;
   --Gap-8 : 8px;
   --Gap-12 : 12px;
   --Gap-16 : 16px;
   --Gap-20 : 20px;
   --Gap-24 : 24px;
+  --Gap-48 : 48px;
+  
+  --Radius-8 : 8px;
   --Radius-14 : 14px;
-  --Background : linear-gradient(180deg, #F8E8EE 0.01%, #E6E6FA 50%, #D2E1FF 99.99%);
-  --Grayscale-Grayscale-80 : #212329;
+  --Radius-Max : 999px;
+
+  --Body-Body-2-Size : 16px;
+
   --Grayscale-Grayscale-60 : #5D677A;
+  --Grayscale-Grayscale-80 : #212329;
   --Grayscale-Translucence-Grayscale-50-Translucence : rgba(146, 155, 173, 0.20);
+  
+  --Text-Text-10 : #212329;
+  --Text-Text-20 : #5D677A;
+  --Text-Text-30 : #929BAD;
+
+  --Text-Text-OnColor : #FFF;
+  
+
+  --Emotions-Dreamy : #B979FF;
 }
