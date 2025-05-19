@@ -3,11 +3,9 @@ import { keyframes } from "@emotion/react";
 
 export const Container = styled.div`
     display: flex;
-    padding: var(--Gap-24) var(--Gap-16);
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
-    gap: var(--Gap-24);
     flex: 1 0 0;
     align-self: stretch;
     height: auto;
