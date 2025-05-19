@@ -55,6 +55,19 @@ const ChoicePreference = () => {
                         {lines.map((line, i) => {
                             // line을 두 번 이어붙인 뒤 중복 제거
                             const uniqueLine = Array.from(new Set([...line, ...line]));
+                            if (line.length <= 4) {
+                                // 4개 이하일 때는 애니메이션 없이 한 번만 출력
+                                return (
+                                    <_.LoopLineWrapper key={i}>
+                                        <div style={{ display: 'flex', gap: 12 }}>
+                                            {Array.from(new Set(line)).map((music, idx) => (
+                                                <_.MusicType key={idx}>{music}</_.MusicType>
+                                            ))}
+                                        </div>
+                                    </_.LoopLineWrapper>
+                                );
+                            }
+                            // 5개 이상일 때만 loop 애니메이션
                             return (
                                 <_.LoopLineWrapper key={i}>
                                     <_.LoopLine>
