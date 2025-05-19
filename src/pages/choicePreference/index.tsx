@@ -1,20 +1,27 @@
+import { useState } from 'react';
 import HeaderBar from '../../components/headerBar/index';
-import MusicType from '../../components/musicType';
 import SubmitBtn from '../../components/submitBtn';
 import * as _ from './style';
 import { musicGenres } from './data';
 
 
 const splitMusicList = (list: string[], n: number) => {
-    const len = Math.ceil(list.length / n);
-    return Array.from({ length: n }, (_, i) =>
-        list.slice(i * len, (i + 1) * len)
-    );
-};
+    const len = Math.ceil(list.length / n); 
+    return Array.from({ length: n }, (_, i) => {
+        const line = list.slice(i * len, (i + 1) * len);
+        console.log(line);
+        return Array.from(new Set(line));
+    });
+}; // list를 3줄로 나누어 출력하기 위한 함수
 
 const ChoicePreference = () => {
-    const musicList = musicGenres;
-    const lines = splitMusicList([...musicList, ...musicList], 3);
+    const [search, setSearch] = useState('');
+    // 검색 결과 필터링
+    const filteredList = musicGenres.filter(item =>
+        item.toLowerCase().startsWith(search.toLowerCase())
+    );
+    
+    const lines = splitMusicList(filteredList, 3);
 
     return (
         <>
@@ -36,28 +43,49 @@ const ChoicePreference = () => {
                         </_.MusicSelectBox>
 
                         <_.SearchBar>
-                            <_.TextInput type='text' placeholder='Search'></_.TextInput>
+                            <_.TextInput
+                                type='text'
+                                placeholder='Search'
+                                value={search}
+                                onChange={e => setSearch(e.target.value)}
+                            />
                             <span className="material-symbols-outlined" style={_.searchIcon}>search</span>
                         </_.SearchBar>
 
-                        {lines.map((line, i) => (
-                            <_.LoopLineWrapper key={i}>
-                                <_.LoopLine>
-                                    {[...line, ...line].map((music, idx) => (
-                                        <_.MusicType key={idx}>{music}</_.MusicType>
-                                    ))}
-                                </_.LoopLine>
-                            </_.LoopLineWrapper>
-                        ))}
+                        {lines.map((line, i) => {
+                            // line을 두 번 이어붙인 뒤 중복 제거
+                            const uniqueLine = Array.from(new Set([...line, ...line]));
+                            if (line.length <= 4) {
+                                // 4개 이하일 때는 애니메이션 없이 한 번만 출력
+                                return (
+                                    <_.LoopLineWrapper key={i}>
+                                        <div style={{ display: 'flex', gap: 12 }}>
+                                            {Array.from(new Set(line)).map((music, idx) => (
+                                                <_.MusicType key={idx}>{music}</_.MusicType>
+                                            ))}
+                                        </div>
+                                    </_.LoopLineWrapper>
+                                );
+                            }
+                            // 5개 이상일 때만 loop 애니메이션
+                            return (
+                                <_.LoopLineWrapper key={i}>
+                                    <_.LoopLine>
+                                        {uniqueLine.map((music, idx) => (
+                                            <_.MusicType key={idx}>{music}</_.MusicType>
+                                        ))}
+                                    </_.LoopLine>
+                                </_.LoopLineWrapper>
+                            );
+                        })}
 
                         <_.SubText>Your playlist changes with your style.</_.SubText>
                     </_.SectionFirstDiv>
                 </_.sectionFrist>
                 <_.SubmitBtnContainer>
-                    <SubmitBtn text={"Go To Next"} icon={"arrow_forward"} />
+                    <SubmitBtn text={"Go To Next"} icon={"arrow_forward"} src={'choiceTempo'}/>
                 </_.SubmitBtnContainer>
             </_.Container>
-
         </>
     );
 }
