@@ -8,22 +8,21 @@ export const Container = styled.div`
   align-items: center;
   flex: 1 0 0;
   align-self: stretch;
-  height: auto;
+  height: 100%;
 `;
 
 export const sectionFrist = styled.section`
   display: flex;
+  flex-grow: 1;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: var(--Gap-48);
-  flex: 1 0 0;
   align-self: stretch;
 `;
 
 export const SectionFirstDiv = styled.div`
   width: 100%;
-  height: 630px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
