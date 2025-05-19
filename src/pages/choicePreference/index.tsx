@@ -24,7 +24,6 @@ const ChoicePreference = () => {
 
   return (
     <>
-      <HeaderBar text={"Music Style"} />
       <_.Container>
         <_.sectionFrist>
           <_.SectionFirstDiv>
