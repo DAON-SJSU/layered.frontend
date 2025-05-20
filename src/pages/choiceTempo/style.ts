@@ -89,12 +89,3 @@ export const BtnContainer = styled.div`
     align-items: flex-start;
     align-self: stretch;
 `
-
-export const ContainerDiv = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: var(--Gap-24, 24px);
-    height: 528px;
-`
