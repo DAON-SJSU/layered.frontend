@@ -45,6 +45,7 @@ export const SectionFirst = styled.section`
 `;
 
 export const SectionFirstDiv1 = styled.div`
+  padding: 0 8px;
   display: flex;
   height: 74px;
   width: 100%;
@@ -129,7 +130,7 @@ export const GrayCard2 = styled.div`
   border-radius: var(--Radius-8, 8px);
   background: var(--Grayscale-Translucence-Grayscale-50-Translucence);
   color: var(--Grayscale-Grayscale-80);
-  padding: var(--Gap-8) var(--Gap-12);
+  padding: var(--Gap-8) var(--Gap-8);
   display: flex;
   justify-content: center;
   font-family: Poppins;
