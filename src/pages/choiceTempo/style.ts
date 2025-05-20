@@ -3,23 +3,18 @@ import styled from "@emotion/styled";
 
 export const Container = styled.div`
     display: flex;
-    padding: var(--Gap-24) var(--Gap-16);
     flex-direction: column;
-    justify-content: flex-end;
     align-items: center;
-    gap: var(--Gap-24);
+    gap: 24px;
     flex: 1 0 0;
     align-self: stretch;
-    height: auto;
 `
 
 export const Content = styled.div`
     display: flex;
-    width: 343px;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    gap: var(--Gap-6);
+    gap: var(--Gap-6, 6px);
 `
 
 export const SelectBar = styled.div`
@@ -91,4 +86,13 @@ export const BtnContainer = styled.div`
     flex-direction: column;
     align-items: flex-start;
     align-self: stretch;
+`
+
+export const ContainerDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--Gap-24, 24px);
+    height: 528px;
 `
