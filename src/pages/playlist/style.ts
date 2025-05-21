@@ -60,5 +60,65 @@ export const BottomDivSection2 = styled.div`
 export const Void = styled.div`
   width: 100%;
   height: 47px;
-  box-sizing: border-box;
 `;
+
+export const BottomDivSection1Div1 = styled.div`
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    width: 343px;
+    height: 67px;
+`
+
+export const Description = styled.p`
+    width: 100%;
+    color: var(--Primary-White, #F3F3F3);
+
+    /* Text/Label/Label-S */
+    font-family: Poppins;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%; /* 15.6px */
+`
+
+export const Emotion = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 8px;
+`
+
+export const PlaylistDuration = styled.div`
+    width: 100%;
+    color: var(--Primary-White, #F3F3F3);
+
+    /* Caption 8 Semibold */
+    font-family: "Open Sans";
+    font-size: 8px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: -0.3px;
+`
+
+export const BottomDivSection1Div2 = styled.div`
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 1px;
+    align-self: stretch;
+`
+
+export const TagBar = styled.div`
+    display: flex;
+    width: 286px;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+`
+
+export const PlayBtn = styled.img`
+    width: 56px;
+    height: 56px;
+`
