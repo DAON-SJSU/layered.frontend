@@ -1,11 +1,11 @@
-import AngerImg from "/src/assets/result_icon_img/Anger_shape.png";
-import LoveImg from "/src/assets/result_icon_img/Love_shape.png";
-import HopeImg from "/src/assets/result_icon_img/Hope_shape.png";
-import ExcitementImg from "/src/assets/result_icon_img/Excitement_shape.png";
-import CalmnessImg from "/src/assets/result_icon_img/Calmness_shape.png";
-import SadnessImg from "/src/assets/result_icon_img/Sadness_shape.png";
-import LonelinessImg from "/src/assets/result_icon_img/Loneliness_shape.png";
-import DreamImg from "/src/assets/result_icon_img/Dream_shape.png";
+import AngerImg from "../../assets/emotions/Anger.png";
+import LoveImg from "../../assets/emotions/Love.png";
+import HopeImg from "../../assets/emotions/Hope.png";
+import ExcitementImg from "../../assets/emotions/Excitement.png";
+import CalmnessImg from "../../assets/emotions/Calmness.png";
+import SadnessImg from "../../assets/emotions/Sadness.png";
+import LonelinessImg from "../../assets/emotions/Loneliness.png";
+import DreamImg from "../../assets/emotions/Dream.png";
 
 
 export const emotionMap: Record<string, {
