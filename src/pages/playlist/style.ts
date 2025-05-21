@@ -123,3 +123,10 @@ export const PlayBtn = styled.img`
     width: 56px;
     height: 56px;
 `
+
+export const EmotionImg = styled.img`
+    width: 200px;
+    height: 200px;
+    flex-shrink: 0;
+    aspect-ratio: 1/1;
+`

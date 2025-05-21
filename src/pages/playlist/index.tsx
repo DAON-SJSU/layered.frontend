@@ -3,6 +3,7 @@ import * as _ from './style';
 import Play from '../../assets/etc/PlayBtn.png';
 import MusicType from "../../components/musicType";
 import Music from "../../components/music";
+import AngerImg from '../../assets/emotions/Anger.svg';
 
 const Playlist = () => {
     return (
@@ -12,7 +13,7 @@ const Playlist = () => {
                 <HeaderBar text={"Home"} />
                 <_.Container>
                     <_.TopDiv>
-
+                        <_.EmotionImg src={AngerImg}></_.EmotionImg>
                     </_.TopDiv>
                     <_.BottomDiv>
                         <_.BottomDivSection1>
