@@ -60,6 +60,7 @@ export const BottomDivSection2 = styled.div`
 export const Void = styled.div`
   width: 100%;
   height: 47px;
+  flex-shrink: 0;
 `;
 
 export const BottomDivSection1Div1 = styled.div`

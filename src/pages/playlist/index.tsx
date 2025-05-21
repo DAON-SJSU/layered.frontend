@@ -7,7 +7,7 @@ const Playlist = () => {
     return (
         <>
             <_.Mobile>
-                <_.Void />
+                <_.Void ></_.Void>
                 <HeaderBar text={"Home"} />
                 <_.Container>
                     <_.TopDiv>
