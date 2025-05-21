@@ -128,13 +128,14 @@ export const TextInput = styled.input`
   }
 `;
 
-export const searchIcon = {
-  color: "var(--Text-Text-30)",
-  fontSize: "20px",
-  fontStyle: "normal",
-  fontWeight: "300",
-  lineHeight: "100%",
-};
+export const Icon_S = styled.span`
+  font-size: 20px;
+  font-family: Material Symbols Rounded;
+  font-weight: 300;
+  line-height: 100%;
+  align-self: center;
+  color: var(--Text-Text-30);
+`;
 
 export const Preferences = styled.div`
   display: flex;

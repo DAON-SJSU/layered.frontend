@@ -1,5 +1,4 @@
 import { useState } from "react";
-import HeaderBar from "../../components/headerBar/index";
 import SubmitBtn from "../../components/submitBtn";
 import * as _ from "./style";
 import { musicGenres } from "./data";
@@ -47,9 +46,7 @@ const ChoicePreference = () => {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
               />
-              <span className="material-symbols-outlined" style={_.searchIcon}>
-                search
-              </span>
+              <_.Icon_S>search</_.Icon_S>
             </_.SearchBar>
 
             <_.Preferences>
