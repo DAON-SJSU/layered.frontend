@@ -65,8 +65,8 @@ function App() {
             <Route path="choicePreference" element={<ChoicePreference />} />
             <Route path="choiceTempo" element={<ChoiceTempo />} />
           </Route>
-          <Route path="/playlist" element={<Playlist />} />
           <Route path="/result" element={<Result />} />
+          <Route path="/playlist" element={<Playlist />} />
         </Routes>
       </motion.div>
     </AnimatePresence>

@@ -5,11 +5,12 @@ import HeaderBar from "../components/headerBar";
 const Layout = () => {
   const location = useLocation();
   const isHomePage = location.pathname === "/";
+  const isPlaylistPage = location.pathname === "/playlist";
 
   return (
     <_.Mobile>
       <_.Void />
-      {!isHomePage && <HeaderBar text={"Music Style"} />}
+      {!isHomePage && !isPlaylistPage && <HeaderBar text={"Music Style"} />}
       <_.MainBody>
         <Outlet />
       </_.MainBody>
