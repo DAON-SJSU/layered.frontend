@@ -43,18 +43,28 @@ export const BottomDiv = styled.div`
 
 export const BottomDivSection1 = styled.div`
     display: flex;
-    width: 375px;
+    width: 100%;
     padding: var(--Gap-12, 12px) 16px;
+    box-sizing: border-box;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
     gap: 1px;
+`
+
+export const BottomDivSection1Wrapper = styled.div`
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 `
 
 export const BottomDivSection2 = styled.div`
     display: flex;
     width: 100%;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: center;
 `
 
 export const Void = styled.div`
@@ -67,6 +77,7 @@ export const BottomDivSection1Div1 = styled.div`
     display: inline-flex;
     flex-direction: column;
     align-items: flex-start;
+    justify-content : center;
     gap: 8px;
     width: 343px;
     height: 67px;
@@ -105,7 +116,7 @@ export const PlaylistDuration = styled.div`
 
 export const BottomDivSection1Div2 = styled.div`
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: flex-start;
     gap: 1px;
     align-self: stretch;

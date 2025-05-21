@@ -18,6 +18,7 @@ const Playlist = () => {
                     </_.TopDiv>
                     <_.BottomDiv>
                         <_.BottomDivSection1>
+                            <_.BottomDivSection1Wrapper>
                             <_.BottomDivSection1Div1>
                                 <_.Description>
                                     These songs heard what your heart couldn’t say.
@@ -30,6 +31,7 @@ const Playlist = () => {
                                     Your playlist — 29m 30s of feeling
                                 </_.PlaylistDuration>
                             </_.BottomDivSection1Div1>
+                            </_.BottomDivSection1Wrapper>
                             <_.BottomDivSection1Div2>
                                 <_.TagBar>
                                     <MusicType music={"K-POP"} isSelected={true}/>

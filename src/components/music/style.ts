@@ -18,7 +18,7 @@ export const MusicImg = styled.img`
 
 export const MusicContent = styled.div`
     display: flex;
-    width: 226.6px;
+    width: 65%;
     flex-direction: column;
     align-items: flex-start;
     gap: 2.666px;
