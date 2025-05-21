@@ -28,7 +28,7 @@ export const MusicContent = styled.div`
 export const MusicTitle = styled.p`
     display: flex;
     width: 100%;
-    height: 14.218px;
+    height: auto;
     align-items: center;
 `
 

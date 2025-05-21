@@ -3,15 +3,20 @@ import downloadBtn from '../../assets/etc/DownloadBtn.png';
 import musicImg from '../../assets/etc/MusicImg.png';
 import menuImg from '../../assets/etc/MenuDots.png';
 
-const Music = () => {
+interface MusicProps {
+    title: string;
+    subTitle: string;
+}
+
+const Music = ({ title, subTitle }: MusicProps) => {
     return (
         <_.MusicContainer>
             <_.MusicImg src={musicImg}/>
             <_.MusicContent>
-                <_.MusicTitle>Dakiti</_.MusicTitle>
+                <_.MusicTitle>{title}</_.MusicTitle>
                 <_.MusicSubtitle>
                     <_.DownloadImg src={downloadBtn}/>
-                    <_.MusicSubtitleText>Bad Bunny & Jhay Cortez</_.MusicSubtitleText>
+                    <_.MusicSubtitleText>{subTitle}</_.MusicSubtitleText>
                 </_.MusicSubtitle>
             </_.MusicContent>
             <_.MenuImg src={menuImg}></_.MenuImg>
