@@ -37,7 +37,6 @@ export const BottomDiv = styled.div`
     height : 80vh;
     flex-direction: column;
     box-sizing: border-box;
-    justify-content: center;
     align-items: flex-start;
     background: linear-gradient(180deg, var(--Emotions-Anger, #FF4848) 0%, rgba(255, 255, 255, 0.00) 92.15%);
 `
