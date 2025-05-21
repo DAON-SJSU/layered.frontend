@@ -5,10 +5,42 @@ import MusicType from "../../components/musicType";
 import Music from "../../components/music";
 import AngerImg from '../../assets/emotions/Anger.png';
 import { musicList } from './data';
-import { useState } from "react";
+import { useRef, useState } from "react";
+import YouTube from 'react-youtube';
+
+const getYoutubeId = (url: string) => {
+    const regExp = /(?:youtube\.com.*(?:\?|&)v=|youtu\.be\/)([^&#?]+)/;
+    const match = url.match(regExp);
+    return match ? match[1] : '';
+}; //youtube url -> id로 파싱
 
 const Playlist = () => {
     const [playlist, setPlaylist] = useState(musicList);
+    const [isPlaying, setIsPlaying] = useState(false);
+    const [currentIdx, setCurrentIdx] = useState(0);
+    const playerRef = useRef<any>(null);
+
+    const handlePlayAll = () => {
+        setIsPlaying(true);
+        setCurrentIdx(0);
+        console.log(getYoutubeId(playlist[currentIdx].url)); // 실제로 어떤 값이 나오는지 확인
+    };
+
+    // 한 곡이 끝나면 다음 곡으로
+    const handleEnd = () => {
+        if (currentIdx < playlist.length - 1) {
+            setCurrentIdx(currentIdx + 1);
+        } else {
+            setIsPlaying(false);
+        }
+    };
+
+    // 개별 곡 클릭 시 해당 곡만 재생
+    const handlePlayOne = (idx: number) => {
+        setIsPlaying(true);
+        setCurrentIdx(idx);
+    };
+
     console.log(playlist);
     return (
         <>
@@ -42,19 +74,44 @@ const Playlist = () => {
                                     <MusicType music={"JPOP"} isSelected={true} />
                                     <MusicType music={"POP"} isSelected={true} />
                                 </_.TagBar>
-                                <_.PlayBtn src={Play}></_.PlayBtn>
+                                <_.PlayBtn src={Play} onClick={handlePlayAll}></_.PlayBtn>
                             </_.BottomDivSection1Div2>
                         </_.BottomDivSection1>
                         <_.BottomDivSection2>
-                            {playlist.map((i) => {
+                            {playlist.map((music, idx) => {
                                 return (
-                                    <Music title={i.title} subTitle={i.channel}></Music>
+                                    <Music
+                                        key={music.url}
+                                        title={music.title}
+                                        subTitle={music.channel}
+                                        url={music.url}
+                                        onPlay={() => handlePlayOne(idx)}
+                                        isPlaying={isPlaying && currentIdx === idx}
+                                    />
                                 )
                             }
                             )}
                         </_.BottomDivSection2>
+                        
                     </_.BottomDiv>
                 </_.Container>
+                {isPlaying && (
+                <YouTube
+                    videoId={getYoutubeId(playlist[currentIdx].url)}
+                    opts={{
+                        height: '0',
+                        width: '0',
+                        playerVars: {
+                            autoplay: 1,
+                            controls: 1,
+                            modestbranding: 1,
+                            rel: 0,
+                        },
+                    }}
+                    onEnd={handleEnd}
+                    onReady={e => e.target.setVolume(100)}
+                />
+            )}
             </_.Mobile>
         </>
     );

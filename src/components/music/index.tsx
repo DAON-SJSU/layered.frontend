@@ -6,11 +6,14 @@ import menuImg from '../../assets/etc/MenuDots.png';
 interface MusicProps {
     title: string;
     subTitle: string;
+    url: string;
+    onPlay?: () => void;
+    isPlaying?: boolean;
 }
 
-const Music = ({ title, subTitle }: MusicProps) => {
+const Music = ({ title, subTitle, url, onPlay }: MusicProps) => {
     return (
-        <_.MusicContainer>
+        <_.MusicContainer onClick={onPlay}>
             <_.MusicImg src={musicImg}/>
             <_.MusicContent>
                 <_.MusicTitle>{title}</_.MusicTitle>
