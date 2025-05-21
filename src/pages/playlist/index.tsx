@@ -1,6 +1,7 @@
 import HeaderBar from "../../components/headerBar";
 import * as _ from './style';
 import Play from '../../assets/etc/PlayBtn.png';
+import MusicType from "../../components/musicType";
 
 const Playlist = () => {
     return (
@@ -27,7 +28,9 @@ const Playlist = () => {
                             </_.BottomDivSection1Div1>
                             <_.BottomDivSection1Div2>
                                 <_.TagBar>
-
+                                    <MusicType music={"K-POP"} isSelected={true}/>
+                                    <MusicType music={"JPOP"} isSelected={true}/>
+                                    <MusicType music={"POP"} isSelected={true}/>
                                 </_.TagBar>
                                 <_.PlayBtn src={Play}></_.PlayBtn>
                             </_.BottomDivSection1Div2>
