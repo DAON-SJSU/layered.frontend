@@ -3,7 +3,7 @@ import * as _ from './style';
 import Play from '../../assets/etc/PlayBtn.png';
 import MusicType from "../../components/musicType";
 import Music from "../../components/music";
-import AngerImg from '../../assets/emotions/Anger.svg';
+import AngerImg from '../../assets/emotions/Anger.png';
 
 const Playlist = () => {
     return (
@@ -14,6 +14,7 @@ const Playlist = () => {
                 <_.Container>
                     <_.TopDiv>
                         <_.EmotionImg src={AngerImg}></_.EmotionImg>
+                        <_.EmotionTitle>Play for you</_.EmotionTitle>
                     </_.TopDiv>
                     <_.BottomDiv>
                         <_.BottomDivSection1>
@@ -22,7 +23,8 @@ const Playlist = () => {
                                     These songs heard what your heart couldn’t say.
                                 </_.Description>
                                 <_.Emotion>
-                                    <p>Anger</p>
+                                    <_.Icon_S>sentiment_extremely_dissatisfied</_.Icon_S>
+                                    <_.EmotionName>Anger</_.EmotionName>
                                 </_.Emotion>
                                 <_.PlaylistDuration>
                                     Your playlist — 29m 30s of feeling

@@ -130,3 +130,39 @@ export const EmotionImg = styled.img`
     flex-shrink: 0;
     aspect-ratio: 1/1;
 `
+
+export const EmotionTitle = styled.h2`
+    width: 277px;
+    height: 45.627px;
+    flex-shrink: 0;
+    color: var(--White, #FFF);
+    text-align: center;
+
+    font-family: Poppins;
+    font-size: 42px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 100%;
+    letter-spacing: -0.42px;
+`
+
+export const Icon_S = styled.span`
+  color: var(--Primary, #000);
+
+    /* Icon/Icon-M */
+    font-family: "Material Symbols Rounded";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 100%; /* 24px */
+`;
+
+export const EmotionName = styled.p`
+    color: #000;
+    font-family: "Poppins";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.3px;
+`
