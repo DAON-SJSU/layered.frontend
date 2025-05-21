@@ -2,6 +2,7 @@ import HeaderBar from "../../components/headerBar";
 import * as _ from './style';
 import Play from '../../assets/etc/PlayBtn.png';
 import MusicType from "../../components/musicType";
+import Music from "../../components/music";
 
 const Playlist = () => {
     return (
@@ -36,7 +37,9 @@ const Playlist = () => {
                             </_.BottomDivSection1Div2>
                         </_.BottomDivSection1>
                         <_.BottomDivSection2>
-
+                            <Music></Music>
+                            <Music></Music>
+                            <Music></Music>
                         </_.BottomDivSection2>
                     </_.BottomDiv>
                 </_.Container>

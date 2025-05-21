@@ -53,6 +53,7 @@ export const BottomDivSection1 = styled.div`
 
 export const BottomDivSection2 = styled.div`
     display: flex;
+    width: 100%;
     flex-direction: column;
     align-items: flex-start;
 `
