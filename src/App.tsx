@@ -65,7 +65,7 @@ function App() {
             <Route path="choicePreference" element={<ChoicePreference />} />
             <Route path="choiceTempo" element={<ChoiceTempo />} />
           </Route>
-          <Route path="/playlist" element={<Playlist />} />
+          <Route path="/playlist/:emotion" element={<Playlist />} />
           <Route path="/result/:emotion" element={<Result />} />
         </Routes>
       </motion.div>

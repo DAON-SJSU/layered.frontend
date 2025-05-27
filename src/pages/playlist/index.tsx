@@ -10,6 +10,8 @@ import YouTube, { type YouTubeProps } from 'react-youtube';
 import { getYoutubeId, onStateChange } from './util';
 import FooterPlaylist from "../../components/playlist/footerPlaylist";
 import FullscreenPlaylist from "../../components/playlist/fullscreenPlaylist";
+import { useParams } from "react-router-dom";
+import { emotionMap } from "./emotionMap";
 
 const Playlist = () => {
     const [playlist, setPlaylist] = useState(musicList);
@@ -21,6 +23,17 @@ const Playlist = () => {
     const [isPaused, setIsPaused] = useState(false);
     const playerRef = useRef<YT.Player | null>(null);
     const [isFullscreen, setIsFullscreen] = useState(false);
+
+    // 감정 결과에 따른 화면 변경
+    const { emotion } = useParams();
+
+    const config = emotionMap[emotion ?? ""];
+
+    if (!config) {
+        return <div>잘못된 감정입니다.</div>;
+    }
+
+    const { label, image, bgTop, bgBottom } = config;
 
     // 일시정지/재생 토글
     const handlePauseToggle = () => {
@@ -121,11 +134,11 @@ const Playlist = () => {
                 <_.Void ></_.Void>
                 <HeaderBar text={"Home"} />
                 <_.Container>
-                    <_.TopDiv>
-                        <_.EmotionImg src={AngerImg}></_.EmotionImg>
+                    <_.TopDiv bg={bgTop}>
+                        <_.EmotionImg src={image}></_.EmotionImg>
                         <_.EmotionTitle>Play for you</_.EmotionTitle>
                     </_.TopDiv>
-                    <_.BottomDiv>
+                    <_.BottomDiv bg={bgBottom}>
                         <_.BottomDivSection1>
                             <_.BottomDivSection1Wrapper>
                                 <_.BottomDivSection1Div1>
@@ -134,7 +147,7 @@ const Playlist = () => {
                                     </_.Description>
                                     <_.Emotion>
                                         <_.Icon_S>sentiment_extremely_dissatisfied</_.Icon_S>
-                                        <_.EmotionName>Anger</_.EmotionName>
+                                        <_.EmotionName>{label}</_.EmotionName>
                                     </_.Emotion>
                                     <_.PlaylistDuration>
                                         Your playlist — 29m 30s of feeling

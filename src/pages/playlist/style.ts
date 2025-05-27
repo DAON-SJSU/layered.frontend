@@ -19,7 +19,7 @@ export const Mobile = styled.main`
   flex-direction: column;
 `;
 
-export const TopDiv = styled.div`
+export const TopDiv = styled.div<{bg : string}>`
     display: flex;
     width: 100%;
     box-sizing: border-box;
@@ -28,17 +28,17 @@ export const TopDiv = styled.div`
     padding: var(--Gap-8, 8px) 49px;
     align-items: center;
     gap: var(--Gap-6, 6px);
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 10%, var(--Emotions-Anger, #FF4848) 99.9%);
+    background: ${({bg})=>bg};
 `
 
-export const BottomDiv = styled.div`
+export const BottomDiv = styled.div<{bg : string}>`
     display: flex;
     width: 100%;
     height : 80vh;
     flex-direction: column;
     box-sizing: border-box;
     align-items: flex-start;
-    background: linear-gradient(180deg, var(--Emotions-Anger, #FF4848) 0%, rgba(255, 255, 255, 0.00) 92.15%);
+    background: ${({bg})=>bg};
 `
 
 export const BottomDivSection1 = styled.div`
