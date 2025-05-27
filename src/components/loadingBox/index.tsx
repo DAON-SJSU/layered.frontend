@@ -1,8 +1,8 @@
 import * as _ from "./style";
-import Yellow from "../../assets/Logo/Yellow cube long.svg";
-import Red from "../../assets/Logo/Red cube.svg";
-import Blue from "../../assets/Logo/Blue cube.svg";
-import YellowL from "../../assets/Logo/Yellow cube.svg";
+import Yellow from "../../assets/cube/YellowCube.png";
+import Red from "../../assets/cube/RedCube.png";
+import Blue from "../../assets/cube/BlueCube.png";
+import Green from "../../assets/cube/GreenCube.png";
 import MainText from "../../assets/Logo/Main text.svg";
 import SubText from "../../assets/Logo/Sub text.svg";
 const LoadingLogo = () => {
@@ -13,11 +13,13 @@ const LoadingLogo = () => {
           <_.LogoImgz src={Yellow} />
           <_.LogoImg src={Red} />
         </_.FirstLine>
+
         <_.SecondLine>
           <_.LogoImgz src={Blue} />
-          <_.LogoImg src={YellowL} />
+          <_.LogoImg src={Green} />
         </_.SecondLine>
       </_.SvgBox>
+
       <_.TextBox>
         <_.MainText src={MainText} />
         <_.SubText src={SubText} />

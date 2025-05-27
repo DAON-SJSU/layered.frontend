@@ -24,12 +24,16 @@ export const SvgBox = styled.div`
 `;
 
 export const LogoImg = styled.img`
-  margin-top: -14px;
+  height: 72px;
+  width: 72px;
+  margin-top: -34px;
   animation: ${dropAnimation} 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
   animation-delay: 0s;
 `;
 
 export const LogoImgz = styled.img`
+  height: 72px;
+  width: 72px;
   position: relative;
   z-index: 2;
   animation: ${dropAnimation} 1.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
@@ -37,6 +41,7 @@ export const LogoImgz = styled.img`
 `;
 
 const BaseLine = styled.div`
+  margin: -8px;
   display: flex;
   flex-direction: column;
 `;
