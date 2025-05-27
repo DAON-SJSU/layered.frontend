@@ -4,6 +4,23 @@ import { formatTime, getYoutubeId } from '../../../pages/playlist/util';
 import Fastforward from '../../../assets/etc/fastforward.svg';
 import Rewind from '../../../assets/etc/rewind.svg';
 
+// Define the props type for FullscreenPlaylist
+type FullscreenPlaylistProps = {
+    playerState: {
+        playlist: Array<any>;
+        currentIdx: number;
+        isPaused: boolean;
+        currentTime: number;
+        duration: number;
+        playerRef: React.RefObject<any>;
+        handlePrev: () => void;
+        handleNext: () => void;
+        handlePauseToggle: () => void;
+        setCurrentTime: (time: number) => void;
+        setIsFullscreen?: (fullscreen: boolean) => void;
+    };
+};
+
 const FullscreenPlaylist = ({ playerState }: FullscreenPlaylistProps) => {
     const {
         playlist,
@@ -19,7 +36,6 @@ const FullscreenPlaylist = ({ playerState }: FullscreenPlaylistProps) => {
         setIsFullscreen,
     } = playerState;
 
-    const [disappear, setDisappear] = useState(false);
 
     const music = playlist[currentIdx];
     if (!music) return null;
@@ -43,14 +59,13 @@ const FullscreenPlaylist = ({ playerState }: FullscreenPlaylistProps) => {
 
     // 뒤로가기 버튼 클릭 시 애니메이션 후 닫기
     const handleBack = () => {
-        setDisappear(true);
         setTimeout(() => {
             setIsFullscreen && setIsFullscreen(false);
         }, 450); // 애니메이션 시간과 맞춤
     };
 
     return (
-        <_.FullscreenWrapper disappear={disappear}>
+        <_.FullscreenWrapper>
             <_.TopBar>
                 <_.BackBtn onClick={handleBack}>⌄</_.BackBtn>
                 <_.AlbumTitle>{music.album || music.title}</_.AlbumTitle>
