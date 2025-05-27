@@ -59,6 +59,7 @@ const FullscreenPlaylist = ({ playerState }: FullscreenPlaylistProps) => {
     // 사용 예시
     const thumbnailUrl = getYoutubeThumbnail(music.url);
 
+    const progress = duration ? (currentTime / duration) * 100 : 0;
 
     return (
         <_.FullscreenWrapper>
@@ -80,6 +81,7 @@ const FullscreenPlaylist = ({ playerState }: FullscreenPlaylistProps) => {
                     value={currentTime}
                     step={1}
                     onChange={handleSeek}
+                    progress={progress}
                 />
                 <_.ProgressTime>
                     <span>{formatTime(currentTime)}</span>

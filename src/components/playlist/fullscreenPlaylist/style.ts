@@ -86,14 +86,23 @@ export const ProgressSection = styled.div`
     flex-direction: column;
 `;
 
-export const ProgressInput = styled.input`
+export const ProgressInput = styled.input<{ progress: number }>`
     width: 100%;
     height: 4px;
     margin: 0;
-    background: transparent;
+    background: ${({ progress }) =>
+        `linear-gradient(
+            to right,
+            #fff 0%,
+            #fff ${progress}%,
+            #444 ${progress}%,
+            #444 100%
+        )`
+    };
     appearance: none;
     outline: none;
     cursor: pointer;
+    border-radius: 2px;
     /* Webkit */
     &::-webkit-slider-thumb {
         appearance: none;
@@ -103,12 +112,12 @@ export const ProgressInput = styled.input`
         background: #fff;
         box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         border: none;
-        margin-top: -6px; /* thumb를 트랙 중앙에 맞춤 */
+        margin-top: -6px;
         transition: background 0.2s;
     }
     &::-webkit-slider-runnable-track {
         height: 4px;
-        background: #fff;
+        background: transparent;
         border-radius: 2px;
     }
     /* Firefox */
@@ -122,7 +131,7 @@ export const ProgressInput = styled.input`
     }
     &::-moz-range-track {
         height: 4px;
-        background: #fff;
+        background: transparent;
         border-radius: 2px;
     }
     /* IE */
@@ -133,8 +142,12 @@ export const ProgressInput = styled.input`
         background: #fff;
         border: none;
     }
-    &::-ms-fill-lower, &::-ms-fill-upper {
+    &::-ms-fill-lower {
         background: #fff;
+        border-radius: 2px;
+    }
+    &::-ms-fill-upper {
+        background: #444;
         border-radius: 2px;
     }
 `;
@@ -144,7 +157,7 @@ export const ProgressTime = styled.div`
     justify-content: space-between;
     color: #fff;
     font-size: 14px;
-    margin-top: 2px;
+    margin-top: 10px; // 기존 2px에서 10px로 변경 (원하는 만큼 조절)
 `;
 
 export const ControlSection = styled.div`
