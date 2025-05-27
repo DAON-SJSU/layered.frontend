@@ -84,7 +84,7 @@ const ChoicePreference = () => {
         <_.SubmitBtnContainer>
           <SubmitBtn
             text={"Go To Next"}
-            icon={"arrow_forward"}
+            icon={"Arrow_Forward"}
             src={"choiceTempo"}
           />
         </_.SubmitBtnContainer>
