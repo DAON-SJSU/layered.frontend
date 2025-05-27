@@ -1,6 +1,7 @@
 import * as _ from './style';
-import { formatTime } from '../../../pages/playlist/util';
-
+import { formatTime, getYoutubeId } from '../../../pages/playlist/util';
+import Fastforward from '../../../assets/etc/fastforward.svg';
+import Rewind from '../../../assets/etc/rewind.svg';
 
 interface FullscreenPlaylistProps {
     playerState: {
@@ -49,6 +50,16 @@ const FullscreenPlaylist = ({ playerState }: FullscreenPlaylistProps) => {
         }
     };
 
+    // 유튜브 썸네일 URL 생성 함수
+    const getYoutubeThumbnail = (videoUrl: string) => {
+        const id = getYoutubeId(videoUrl);
+        return `https://img.youtube.com/vi/${id}/sddefault.jpg`;
+    };
+
+    // 사용 예시
+    const thumbnailUrl = getYoutubeThumbnail(music.url);
+
+
     return (
         <_.FullscreenWrapper>
             <_.TopBar>
@@ -56,7 +67,7 @@ const FullscreenPlaylist = ({ playerState }: FullscreenPlaylistProps) => {
                 <_.AlbumTitle>{music.album || music.title}</_.AlbumTitle>
                 <_.MoreBtn>⋯</_.MoreBtn>
             </_.TopBar>
-            <_.AlbumArt src={music.imgUrl || '/default-thumb.png'} alt="album" />
+            <_.AlbumArt src={thumbnailUrl} alt="album" />
             <_.MusicInfo>
                 <_.MusicTitle>{music.title}</_.MusicTitle>
                 <_.MusicArtist>{music.channel}</_.MusicArtist>
@@ -76,17 +87,15 @@ const FullscreenPlaylist = ({ playerState }: FullscreenPlaylistProps) => {
                 </_.ProgressTime>
             </_.ProgressSection>
             <_.ControlSection>
-                <_.ControlBtn>🔀</_.ControlBtn>
-                <_.ControlBtn onClick={handlePrev}>⏮️</_.ControlBtn>
+                <_.ControlBtn onClick={handlePrev}><img src={Rewind} /></_.ControlBtn>
                 <_.PlayPauseBtn onClick={handlePauseToggle}>
-                    {isPaused ? "▶️" : "⏸️"}
+                    {isPaused ? "▶" : "❚❚"}
                 </_.PlayPauseBtn>
-                <_.ControlBtn onClick={handleNext}>⏭️</_.ControlBtn>
-                <_.ControlBtn>🔁</_.ControlBtn>
+                <_.ControlBtn onClick={handleNext}><img src={Fastforward} /></_.ControlBtn>
             </_.ControlSection>
             <_.MusicMeta>
-                <div>VIEW 71,513,868</div>
-                <div>7 years ago</div>
+                <div>{music.views}</div>
+                <div>{music.publish_time}</div>
             </_.MusicMeta>
         </_.FullscreenWrapper>
     );

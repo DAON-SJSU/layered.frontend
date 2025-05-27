@@ -188,3 +188,13 @@ export const MusicMeta = styled.div`
     justify-content: space-between;
     margin-top: 12px;
 `;
+
+
+export const Icon_S = styled.span`
+  font-size: 60px;
+  font-family: Material Symbols Rounded;
+  font-weight: 300;
+  line-height: 100%;
+  align-self: center;
+  color: black;
+`;
