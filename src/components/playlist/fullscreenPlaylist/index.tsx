@@ -1,28 +1,8 @@
+import React, { useState } from 'react';
 import * as _ from './style';
 import { formatTime, getYoutubeId } from '../../../pages/playlist/util';
 import Fastforward from '../../../assets/etc/fastforward.svg';
 import Rewind from '../../../assets/etc/rewind.svg';
-
-interface FullscreenPlaylistProps {
-    playerState: {
-        playlist: any[];
-        currentIdx: number;
-        isMuted: boolean;
-        isPaused: boolean;
-        isPlaying: boolean;
-        currentTime: number;
-        duration: number;
-        playerRef: React.MutableRefObject<YT.Player | null>;
-        handlePrev: () => void;
-        handleNext: () => void;
-        handleMute: () => void;
-        handlePauseToggle: () => void;
-        setIsPlaying: (v: boolean) => void;
-        setIsPaused: (v: boolean) => void;
-        setCurrentTime: (v: number) => void;
-        setIsFullscreen?: (v: boolean) => void;
-    };
-}
 
 const FullscreenPlaylist = ({ playerState }: FullscreenPlaylistProps) => {
     const {
@@ -38,6 +18,8 @@ const FullscreenPlaylist = ({ playerState }: FullscreenPlaylistProps) => {
         setCurrentTime,
         setIsFullscreen,
     } = playerState;
+
+    const [disappear, setDisappear] = useState(false);
 
     const music = playlist[currentIdx];
     if (!music) return null;
@@ -56,15 +38,21 @@ const FullscreenPlaylist = ({ playerState }: FullscreenPlaylistProps) => {
         return `https://img.youtube.com/vi/${id}/sddefault.jpg`;
     };
 
-    // 사용 예시
     const thumbnailUrl = getYoutubeThumbnail(music.url);
-
     const progress = duration ? (currentTime / duration) * 100 : 0;
 
+    // 뒤로가기 버튼 클릭 시 애니메이션 후 닫기
+    const handleBack = () => {
+        setDisappear(true);
+        setTimeout(() => {
+            setIsFullscreen && setIsFullscreen(false);
+        }, 450); // 애니메이션 시간과 맞춤
+    };
+
     return (
-        <_.FullscreenWrapper>
+        <_.FullscreenWrapper disappear={disappear}>
             <_.TopBar>
-                <_.BackBtn onClick={() => setIsFullscreen && setIsFullscreen(false)}>⌄</_.BackBtn>
+                <_.BackBtn onClick={handleBack}>⌄</_.BackBtn>
                 <_.AlbumTitle>{music.album || music.title}</_.AlbumTitle>
                 <_.MoreBtn>⋯</_.MoreBtn>
             </_.TopBar>

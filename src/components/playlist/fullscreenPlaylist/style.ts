@@ -1,17 +1,40 @@
 import styled from '@emotion/styled';
+import { keyframes } from '@emotion/react';
+
+const FOOTER_HEIGHT = 64; // FooterPlaylist의 높이(px)
+
+const slideUp = keyframes`
+  from {
+    transform: translateY(calc(100vh - ${FOOTER_HEIGHT}px)) scale(0.98);
+    opacity: 1;
+    border-radius: 16px 16px 0 0; /* footer와 동일하게 */
+    box-shadow: 0 -2px 16px 0 rgba(0,0,0,0.10); /* footer와 동일하게 */
+    background: #232323; /* footer와 동일하게 */
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    border-radius: 0;
+    box-shadow: none;
+    background: linear-gradient(180deg, #a02b1f 0%, #232323 80%, #232323 100%);
+  }
+`;
 
 export const FullscreenWrapper = styled.div`
     width: 100%;
     height: 100%;
-    background: linear-gradient(180deg, #a02b1f 0%, #232323 100%);
+    background: linear-gradient(180deg, #a02b1f 0%, #232323 80%, #232323 100%);
     display: flex;
     flex-direction: column;
-    max-width : 460px;
+    max-width: 460px;
     align-items: center;
     box-sizing: border-box;
     position: fixed;
     top: 0;
     z-index: 2000;
+    animation: ${slideUp} 0.45s cubic-bezier(0.33, 1, 0.68, 1);
+    pointer-events: auto;
+    will-change: transform, opacity, border-radius, box-shadow, background;
 `;
 
 export const TopBar = styled.div`
