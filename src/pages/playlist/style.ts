@@ -184,12 +184,12 @@ export const FooterBar = styled.footer`
     right: 0;
     bottom: 0;
     width: calc(100% - 32px);
-    background-color: black;
+    background-color: #282828;
     color: white;
     padding: 12px 16px;
     display: flex;
     flex-direction: column;
-    zIndex: 1000;
+    z-index: 1000;
     max-width: 430px;
     margin: 0 auto;
 `
