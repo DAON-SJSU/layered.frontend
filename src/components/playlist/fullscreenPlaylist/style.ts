@@ -23,6 +23,7 @@ export const TopBar = styled.div`
     color: #fff;
     font-size: 20px;
     text-align:center;
+    margin-top: 5%;
 `;
 
 export const BackBtn = styled.button`
