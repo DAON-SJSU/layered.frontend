@@ -3,46 +3,50 @@ import { getYoutubeId, handleSeek, formatTime } from "../../../pages/playlist/ut
 import * as _ from './style';
 
 interface FooterPlaylistProps {
-    playlist: any[];
-    currentIdx: number;
-    isMuted: boolean;
-    isPaused: boolean;
-    isPlaying: boolean;
-    currentTime: number;
-    duration: number;
-    playerRef: React.MutableRefObject<YT.Player | null>;
-    handlePrev: () => void;
-    handleNext: () => void;
-    handleMute: () => void;
-    handlePauseToggle: () => void;
-    setIsPlaying: (v: boolean) => void;
-    setIsPaused: (v: boolean) => void;
-    setCurrentTime: (v: number) => void;
-    onReady: (e: any) => void;
-    onEnd: () => void;
-    onStateChangeInternal: (e: any) => void;
+    playerState: {
+        playlist: any[];
+        currentIdx: number;
+        isMuted: boolean;
+        isPaused: boolean;
+        isPlaying: boolean;
+        currentTime: number;
+        duration: number;
+        playerRef: React.MutableRefObject<YT.Player | null>;
+        handlePrev: () => void;
+        handleNext: () => void;
+        handleMute: () => void;
+        handlePauseToggle: () => void;
+        setIsPlaying: (v: boolean) => void;
+        setIsPaused: (v: boolean) => void;
+        setCurrentTime: (v: number) => void;
+        onReady: (e: any) => void;
+        onEnd: () => void;
+        onStateChangeInternal: (e: any) => void;
+    };
 }
 
-const FooterPlaylist = ({
-    playlist,
-    currentIdx,
-    isMuted,
-    isPaused,
-    isPlaying,
-    currentTime,
-    duration,
-    playerRef,
-    handlePrev,
-    handleNext,
-    handleMute,
-    handlePauseToggle,
-    setIsPlaying,
-    setIsPaused,
-    setCurrentTime,
-    onReady,
-    onEnd,
-    onStateChangeInternal,
-}: FooterPlaylistProps) => {
+const FooterPlaylist = ({ playerState }: FooterPlaylistProps) => {
+    const {
+        playlist,
+        currentIdx,
+        isMuted,
+        isPaused,
+        isPlaying,
+        currentTime,
+        duration,
+        playerRef,
+        handlePrev,
+        handleNext,
+        handleMute,
+        handlePauseToggle,
+        setIsPlaying,
+        setIsPaused,
+        setCurrentTime,
+        onReady,
+        onEnd,
+        onStateChangeInternal,
+    } = playerState;
+
     if (!isPlaying) return null;
     return (
         <>

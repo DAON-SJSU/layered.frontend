@@ -6,13 +6,8 @@ import Music from "../../components/music";
 import AngerImg from '../../assets/emotions/Anger.png';
 import { musicList } from './data';
 import { useRef, useState } from "react";
-import YouTube, { type YouTubeProps } from 'react-youtube';
-import {
-    getYoutubeId,
-    formatTime,
-    onStateChange,
-    handleSeek,
-} from './util';
+import { type YouTubeProps } from 'react-youtube';
+import { onStateChange } from './util';
 import FooterPlaylist from "../../components/playlist/footerPlaylist";
 
 const Playlist = () => {
@@ -99,7 +94,27 @@ const Playlist = () => {
         }
     };
 
-    console.log(playlist);
+    const playerState = {
+        playlist,
+        currentIdx,
+        isMuted,
+        isPaused,
+        isPlaying,
+        currentTime,
+        duration,
+        playerRef,
+        handlePrev,
+        handleNext,
+        handleMute,
+        handlePauseToggle,
+        setIsPlaying,
+        setIsPaused,
+        setCurrentTime,
+        onReady,
+        onEnd: handleEnd,
+        onStateChangeInternal,
+    };
+
     return (
         <>
             <_.Mobile>
@@ -154,26 +169,7 @@ const Playlist = () => {
                 </_.Container>
 
                 {isPlaying && (
-                    <FooterPlaylist
-                        playlist={playlist}
-                        currentIdx={currentIdx}
-                        isMuted={isMuted}
-                        isPaused={isPaused}
-                        isPlaying={isPlaying}
-                        currentTime={currentTime}
-                        duration={duration}
-                        playerRef={playerRef}
-                        handlePrev={handlePrev}
-                        handleNext={handleNext}
-                        handleMute={handleMute}
-                        handlePauseToggle={handlePauseToggle}
-                        setIsPlaying={setIsPlaying}
-                        setIsPaused={setIsPaused}
-                        setCurrentTime={setCurrentTime}
-                        onReady={onReady}
-                        onEnd={handleEnd}
-                        onStateChangeInternal={onStateChangeInternal}
-                    />
+                    <FooterPlaylist playerState={playerState} />
                 )}
             </_.Mobile>
         </>
