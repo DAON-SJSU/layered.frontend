@@ -22,6 +22,7 @@ interface FooterPlaylistProps {
     };
 }
 
+
 const FooterPlaylist = ({ playerState }: FooterPlaylistProps) => {
     const {
         playlist,
@@ -36,11 +37,20 @@ const FooterPlaylist = ({ playerState }: FooterPlaylistProps) => {
     } = playerState;
 
     const music = playlist[currentIdx];
+    const progress = duration ? (currentTime / duration) * 100 : 0;
+
+    const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const newTime = Number(e.target.value);
+        setCurrentTime(newTime);
+        if (playerRef.current) {
+            playerRef.current.seekTo(newTime, true);
+        }
+    };
 
     if (!music) return null;
 
     return (
-        <>    
+        <>
             <_.FooterBar onClick={() => setIsFullscreen(true)}>
                 <_.FooterInfo>
                     <_.FooterTitle>{music.title}</_.FooterTitle>
@@ -50,17 +60,20 @@ const FooterPlaylist = ({ playerState }: FooterPlaylistProps) => {
                         Listen Again
                     </_.FooterSubtitle>
                 </_.FooterInfo>
-                <input
-                    type="range"
-                    min={0}
-                    max={duration}
-                    value={currentTime}
-                    onClick={e => e.stopPropagation()}
-                    onMouseDown={e => e.stopPropagation()}
-                    onTouchStart={e => e.stopPropagation()}
-                    onChange={e => { e.stopPropagation(); handleSeek(e, playerRef, setCurrentTime); }}
-                    style={{ flex: 1 }}
-                />
+                <_.ProgressSection>
+                    <_.ProgressInput
+                        type="range"
+                        min={0}
+                        max={duration}
+                        value={currentTime}
+                        step={1}
+                        onChange={handleSeek}
+                        progress={progress}
+                        onClick={e => e.stopPropagation()}
+                        onMouseDown={e => e.stopPropagation()}
+                        onTouchStart={e => e.stopPropagation()}
+                    />
+                </_.ProgressSection>
                 <_.FooterPlayBtn
                     onClick={e => { e.stopPropagation(); handlePauseToggle(); }}
                 >

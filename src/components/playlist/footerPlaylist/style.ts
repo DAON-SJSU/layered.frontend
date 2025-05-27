@@ -62,3 +62,76 @@ export const FooterPlayBtn = styled.button`
     align-items: center;
     justify-content: center;
 `;
+
+export const ProgressSection = styled.div`
+    width: 50%;
+    margin: 0 auto 8px auto;
+    display: flex;
+    flex-direction: column;
+`;
+
+export const ProgressInput = styled.input<{ progress: number }>`
+    width: 100%;
+    height: 4px;
+    margin: 0;
+    background: ${({ progress }) =>
+        `linear-gradient(
+            to right,
+            #fff 0%,
+            #fff ${progress}%,
+            #444 ${progress}%,
+            #444 100%
+        )`
+    };
+    appearance: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 2px;
+    /* Webkit */
+    &::-webkit-slider-thumb {
+        appearance: none;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: #fff;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        border: none;
+        margin-top: -6px;
+        transition: background 0.2s;
+    }
+    &::-webkit-slider-runnable-track {
+        height: 4px;
+        background: transparent;
+        border-radius: 2px;
+    }
+    /* Firefox */
+    &::-moz-range-thumb {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: #fff;
+        border: none;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    &::-moz-range-track {
+        height: 4px;
+        background: transparent;
+        border-radius: 2px;
+    }
+    /* IE */
+    &::-ms-thumb {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: #fff;
+        border: none;
+    }
+    &::-ms-fill-lower {
+        background: #fff;
+        border-radius: 2px;
+    }
+    &::-ms-fill-upper {
+        background: #444;
+        border-radius: 2px;
+    }
+`;
