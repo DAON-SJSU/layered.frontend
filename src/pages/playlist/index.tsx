@@ -200,21 +200,7 @@ const Playlist = () => {
                     onReady={onReady}
                     onStateChange={onStateChange}
                 />
-                <div style={{
-                    position: "fixed",
-                    left: 0,
-                    right: 0,
-                    bottom: 0,
-                    width: "100%",
-                    background: "#222",
-                    color: "#fff",
-                    padding: "12px 16px",
-                    display: "flex",
-                    flexDirection: "column",
-                    zIndex: 1000,
-                    maxWidth: "430px",
-                    margin: "0 auto"
-                }}>
+                <_.FooterBar>
                     <div style={{ fontWeight: 600, marginBottom: 4, fontSize: 14 }}>
                         {playlist[currentIdx].title}
                     </div>
@@ -238,7 +224,7 @@ const Playlist = () => {
                             {formatTime(currentTime)} / {formatTime(duration)}
                         </span>
                     </div>
-                </div>
+                </_.FooterBar>
             </>
         )}
     </_.Mobile>
