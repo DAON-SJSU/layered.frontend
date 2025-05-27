@@ -6,9 +6,10 @@ import Music from "../../components/music";
 import AngerImg from '../../assets/emotions/Anger.png';
 import { musicList } from './data';
 import { useRef, useState } from "react";
-import { type YouTubeProps } from 'react-youtube';
-import { onStateChange } from './util';
+import YouTube, { type YouTubeProps } from 'react-youtube';
+import { getYoutubeId, onStateChange } from './util';
 import FooterPlaylist from "../../components/playlist/footerPlaylist";
+import FullscreenPlaylist from "../../components/playlist/fullscreenPlaylist";
 
 const Playlist = () => {
     const [playlist, setPlaylist] = useState(musicList);
@@ -19,6 +20,7 @@ const Playlist = () => {
     const [duration, setDuration] = useState(0);
     const [isPaused, setIsPaused] = useState(false);
     const playerRef = useRef<YT.Player | null>(null);
+    const [isFullscreen, setIsFullscreen] = useState(false);
 
     // 일시정지/재생 토글
     const handlePauseToggle = () => {
@@ -110,9 +112,7 @@ const Playlist = () => {
         setIsPlaying,
         setIsPaused,
         setCurrentTime,
-        onReady,
-        onEnd: handleEnd,
-        onStateChangeInternal,
+        setIsFullscreen,
     };
 
     return (
@@ -169,7 +169,28 @@ const Playlist = () => {
                 </_.Container>
 
                 {isPlaying && (
+                    <YouTube
+                        videoId={getYoutubeId(playlist[currentIdx].url)}
+                        opts={{
+                            height: '0',
+                            width: '0',
+                            playerVars: {
+                                autoplay: 1,
+                                controls: 0,
+                                modestbranding: 1,
+                                rel: 0,
+                            },
+                        }}
+                        onEnd={handleEnd}
+                        onReady={onReady}
+                        onStateChange={onStateChangeInternal}
+                    />
+                )}
+                {isPlaying && !isFullscreen && (
                     <FooterPlaylist playerState={playerState} />
+                )}
+                {isPlaying && isFullscreen && (
+                    <FullscreenPlaylist playerState={playerState} />
                 )}
             </_.Mobile>
         </>

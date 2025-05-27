@@ -1,5 +1,4 @@
-import YouTube from "react-youtube";
-import { getYoutubeId, handleSeek, formatTime } from "../../../pages/playlist/util";
+import { formatTime, handleSeek } from '../../../pages/playlist/util';
 import * as _ from './style';
 
 interface FooterPlaylistProps {
@@ -19,9 +18,7 @@ interface FooterPlaylistProps {
         setIsPlaying: (v: boolean) => void;
         setIsPaused: (v: boolean) => void;
         setCurrentTime: (v: number) => void;
-        onReady: (e: any) => void;
-        onEnd: () => void;
-        onStateChangeInternal: (e: any) => void;
+        setIsFullscreen: (v: boolean) => void;
     };
 }
 
@@ -42,31 +39,13 @@ const FooterPlaylist = ({ playerState }: FooterPlaylistProps) => {
         setIsPlaying,
         setIsPaused,
         setCurrentTime,
-        onReady,
-        onEnd,
-        onStateChangeInternal,
+        setIsFullscreen,
     } = playerState;
 
     if (!isPlaying) return null;
     return (
-        <>
-            <YouTube
-                videoId={getYoutubeId(playlist[currentIdx].url)}
-                opts={{
-                    height: '0',
-                    width: '0',
-                    playerVars: {
-                        autoplay: 1,
-                        controls: 0,
-                        modestbranding: 1,
-                        rel: 0,
-                    },
-                }}
-                onEnd={onEnd}
-                onReady={onReady}
-                onStateChange={onStateChangeInternal}
-            />
-            <_.FooterBar>
+        <>    
+            <_.FooterBar onClick={() => setIsFullscreen(true)}>
                 <div style={{ fontWeight: 600, marginBottom: 4, fontSize: 14 }}>
                     {playlist[currentIdx].title}
                 </div>
