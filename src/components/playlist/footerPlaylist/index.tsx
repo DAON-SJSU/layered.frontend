@@ -50,21 +50,24 @@ const FooterPlaylist = ({ playerState }: FooterPlaylistProps) => {
                     {playlist[currentIdx].title}
                 </div>
                 <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                    <button onClick={handlePrev} disabled={currentIdx === 0}>⏮️</button>
-                    <button onClick={handleMute}>{isMuted ? "🔇" : "🔊"}</button>
-                    <button onClick={handlePauseToggle}>
+                    <button onClick={e => { e.stopPropagation(); handlePrev(); }} disabled={currentIdx === 0}>⏮️</button>
+                    <button onClick={e => { e.stopPropagation(); handleMute(); }}>{isMuted ? "🔇" : "🔊"}</button>
+                    <button onClick={e => { e.stopPropagation(); handlePauseToggle(); }}>
                         {isPaused ? "▶️" : "⏸️"}
                     </button>
-                    <button onClick={() => { setIsPlaying(false); setIsPaused(false); }}>⏹️</button>
+                    <button onClick={e => { e.stopPropagation(); setIsPlaying(false); setIsPaused(false); }}>⏹️</button>
                     <input
                         type="range"
                         min={0}
                         max={duration}
                         value={currentTime}
-                        onChange={e => handleSeek(e, playerRef, setCurrentTime)}
+                        onClick={e => e.stopPropagation()}
+                        onMouseDown={e => e.stopPropagation()}
+                        onTouchStart={e => e.stopPropagation()}
+                        onChange={e => { e.stopPropagation(); handleSeek(e, playerRef, setCurrentTime); }}
                         style={{ flex: 1 }}
                     />
-                    <button onClick={handleNext} disabled={currentIdx === playlist.length - 1}>⏭️</button>
+                    <button onClick={e => { e.stopPropagation(); handleNext(); }} disabled={currentIdx === playlist.length - 1}>⏭️</button>
                     <span style={{ fontSize: 12, marginLeft: 8 }}>
                         {formatTime(currentTime)} / {formatTime(duration)}
                     </span>
