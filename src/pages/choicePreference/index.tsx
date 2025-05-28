@@ -3,6 +3,7 @@ import SubmitBtn from "../../components/submitBtn";
 import * as _ from "./style";
 import { musicGenres } from "./data";
 import MusicType from "../../components/musicType";
+import PreferenceList from "../../components/preferenceList";
 
 const splitMusicList = (list: string[], n: number) => {
 
@@ -32,12 +33,7 @@ const ChoicePreference = () => {
         <_.sectionFrist>
           <_.SectionFirstDiv>
             <_.MusicSelectBox>
-              <_.Musics>
-                <_.Music>1</_.Music>
-                <_.Music>2</_.Music>
-                <_.Music>3</_.Music>
-                <_.Music>4</_.Music>
-              </_.Musics>
+              <PreferenceList />
               <_.TextBox>
                 <_.TextBoxH2>What's your music style?</_.TextBoxH2>
                 <_.TextBoxP>Pick four things you usually listen to</_.TextBoxP>
