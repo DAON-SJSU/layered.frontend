@@ -2,6 +2,16 @@ import { useState } from "react";
 import SubmitBtn from "../../components/submitBtn";
 import * as _ from "./style";
 import { musicGenres } from "./data";
+import MusicType from "../../components/musicType";
+import PreferenceList from "../../components/preferenceList";
+
+export interface PreferenceRequest {
+  emotion: string;
+  genres: string[];
+  tempo: number;
+  length: number;
+  orderBy: 'Popularity' | 'Random';
+}
 
 const splitMusicList = (list: string[], n: number) => {
   const len = Math.ceil(list.length / n);
@@ -13,13 +23,30 @@ const splitMusicList = (list: string[], n: number) => {
 }; // list를 3줄로 나누어 출력하기 위한 함수
 
 const ChoicePreference = () => {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState<string>("");
   // 검색 결과 필터링
   const filteredList = musicGenres.filter((item) =>
     item.toLowerCase().startsWith(search.toLowerCase())
   );
 
+  
+
   const lines = splitMusicList(filteredList, 3);
+
+  // Request로 보낼 state들
+  const [genres, setGenres] = useState<string[]>([]);
+  const [emotion, setEmotion] = useState<string>("");
+  const [tempo, setTempo] = useState<number>(0);
+  const [length, setLength] = useState<number>(0);
+  const [orderBy, setOrderBy] = useState<'Popularity' | 'Random'>('Popularity');
+
+  const request = {
+    emotion,
+    genres,
+    tempo,
+    length,
+    orderBy,
+  };
 
   return (
     <>
@@ -27,12 +54,7 @@ const ChoicePreference = () => {
         <_.sectionFrist>
           <_.SectionFirstDiv>
             <_.MusicSelectBox>
-              <_.Musics>
-                <_.Music>1</_.Music>
-                <_.Music>2</_.Music>
-                <_.Music>3</_.Music>
-                <_.Music>4</_.Music>
-              </_.Musics>
+              <PreferenceList selectedList={genres}/> {/* 변경된 부분 */}
               <_.TextBox>
                 <_.TextBoxH2>What's your music style?</_.TextBoxH2>
                 <_.TextBoxP>Pick four things you usually listen to</_.TextBoxP>
@@ -59,7 +81,13 @@ const ChoicePreference = () => {
                     <_.LoopLineWrapper key={i}>
                       <div style={{ display: "flex", gap: 12 }}>
                         {Array.from(new Set(line)).map((music, idx) => (
-                          <_.MusicType key={idx}>{music}</_.MusicType>
+                          <MusicType
+                            key={idx}
+                            music={music}
+                            setList={setGenres} // 변경된 부분
+                            list={genres}       // 변경된 부분
+                            isSelected={genres.includes(music)} // 변경된 부분
+                          />
                         ))}
                       </div>
                     </_.LoopLineWrapper>
@@ -70,7 +98,13 @@ const ChoicePreference = () => {
                   <_.LoopLineWrapper key={i}>
                     <_.LoopLine>
                       {uniqueLine.map((music, idx) => (
-                        <_.MusicType key={idx}>{music}</_.MusicType>
+                        <MusicType
+                          key={idx}
+                          music={music}
+                          setList={setGenres} // 변경된 부분
+                          list={genres}       // 변경된 부분
+                          isSelected={genres.includes(music)} // 변경된 부분
+                        />
                       ))}
                     </_.LoopLine>
                   </_.LoopLineWrapper>
@@ -81,11 +115,12 @@ const ChoicePreference = () => {
             <_.SubText>Your playlist changes with your style.</_.SubText>
           </_.SectionFirstDiv>
         </_.sectionFrist>
-        <_.SubmitBtnContainer>
+        <_.SubmitBtnContainer onClick={()=>console.log(genres)}> {/* 변경된 부분 */}
           <SubmitBtn
             text={"Go To Next"}
             icon={"Arrow_Forward"}
             src={"choiceTempo"}
+            request = {request}
           />
         </_.SubmitBtnContainer>
       </_.Container>

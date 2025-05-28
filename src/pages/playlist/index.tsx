@@ -1,9 +1,7 @@
 import HeaderBar from "../../components/headerBar";
 import * as _ from './style';
 import Play from '../../assets/etc/PlayBtn.png';
-import MusicType from "../../components/musicType";
 import Music from "../../components/music";
-import AngerImg from '../../assets/emotions/Anger.png';
 import { musicList } from './data';
 import { useRef, useState } from "react";
 import YouTube, { type YouTubeProps } from 'react-youtube';
@@ -12,6 +10,7 @@ import FooterPlaylist from "../../components/playlist/footerPlaylist";
 import FullscreenPlaylist from "../../components/playlist/fullscreenPlaylist";
 import { useParams } from "react-router-dom";
 import { emotionMap } from "./emotionMap";
+import PlaylistMusicType from "../../components/playlistMusicType";
 
 const Playlist = () => {
     const [playlist, setPlaylist] = useState(musicList);
@@ -156,9 +155,9 @@ const Playlist = () => {
                             </_.BottomDivSection1Wrapper>
                             <_.BottomDivSection1Div2>
                                 <_.TagBar>
-                                    <MusicType music={"K-POP"} isSelected={true} />
-                                    <MusicType music={"JPOP"} isSelected={true} />
-                                    <MusicType music={"POP"} isSelected={true} />
+                                    <PlaylistMusicType music={"K-POP"} />
+                                    <PlaylistMusicType music={"JPOP"} />
+                                    <PlaylistMusicType music={"POP"} />
                                 </_.TagBar>
                                 <_.PlayBtn src={Play} onClick={handlePlayAll}></_.PlayBtn>
                             </_.BottomDivSection1Div2>

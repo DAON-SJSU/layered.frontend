@@ -56,7 +56,8 @@ export const ContentP = styled.p`
   line-height: 130%;
 `;
 
-export const Option = styled.div`
+export const Option = styled.div<{ isSelected: boolean }>`
+  cursor: pointer;
   display: flex;
   width: 100%;
   padding: 8px 0;
@@ -64,6 +65,8 @@ export const Option = styled.div`
   align-items: center;
   gap: 10px;
   border-radius: var(--Radius-8);
+  background: ${({ isSelected }) => (isSelected ? "#E6E9F0" : "transparent")};
+  transition: background 0.2s;
 `;
 
 export const SelectBarInner = styled.div`
@@ -73,8 +76,8 @@ export const SelectBarInner = styled.div`
   align-self: stretch;
 `;
 
-export const OptionInner = styled.p`
-  color: var(--Text-Text-30);
+export const OptionInner = styled.div<{ isSelected: boolean }>`
+  color: ${({ isSelected }) => (isSelected ? "#5D677A" : "#929BAD")};
   font-family: Poppins;
   font-size: 15px;
   font-style: normal;
