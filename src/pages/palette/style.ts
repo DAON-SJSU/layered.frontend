@@ -101,6 +101,7 @@ export const AddButton = styled.div`
 export const Cube = styled.img`
   transition: transform 0.3s ease;
   transform-origin: center;
+  width: 60%;
   animation: fadeIn 0.5s ease;
 
   @keyframes fadeIn {
