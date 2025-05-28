@@ -51,3 +51,15 @@ export const colors = [
       "A pale, dusted lavender with traces of warmth beneath its still surface.  This color speaks of hope that hasn't died, only tucked away—quiet, waiting, and patient.  It feels like a letter never sent, a dream not yet spoken aloud, or morning light breaking through heavy clouds.",
   },
 ];
+
+
+export interface Emotion{
+    Anger : number;
+    Love : number;
+    Hope : number;
+    Excitement : number;
+    Calmness : number;
+    Sadness : number;
+    Loneliness : number;
+    Dream : number;
+}
