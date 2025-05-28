@@ -2,9 +2,12 @@ import { useState } from "react";
 import SubmitBtn from "../../components/submitBtn";
 import * as _ from "./style";
 import { musicGenres } from "./data";
+import MusicType from "../../components/musicType";
 
 const splitMusicList = (list: string[], n: number) => {
+
   const len = Math.ceil(list.length / n);
+
   return Array.from({ length: n }, (_, i) => {
     const line = list.slice(i * len, (i + 1) * len);
     console.log(line);
@@ -13,11 +16,13 @@ const splitMusicList = (list: string[], n: number) => {
 }; // list를 3줄로 나누어 출력하기 위한 함수
 
 const ChoicePreference = () => {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState<string>("");
   // 검색 결과 필터링
   const filteredList = musicGenres.filter((item) =>
     item.toLowerCase().startsWith(search.toLowerCase())
   );
+
+  const [selectedList, setSelectedList] = useState<string[]>([]);
 
   const lines = splitMusicList(filteredList, 3);
 
@@ -59,7 +64,7 @@ const ChoicePreference = () => {
                     <_.LoopLineWrapper key={i}>
                       <div style={{ display: "flex", gap: 12 }}>
                         {Array.from(new Set(line)).map((music, idx) => (
-                          <_.MusicType key={idx}>{music}</_.MusicType>
+                          <MusicType key={idx} music={music} setList={setSelectedList} list={selectedList} isSelected={selectedList.includes(music)}/>
                         ))}
                       </div>
                     </_.LoopLineWrapper>
@@ -70,7 +75,7 @@ const ChoicePreference = () => {
                   <_.LoopLineWrapper key={i}>
                     <_.LoopLine>
                       {uniqueLine.map((music, idx) => (
-                        <_.MusicType key={idx}>{music}</_.MusicType>
+                        <MusicType key={idx} music={music} setList={setSelectedList} list={selectedList} isSelected={selectedList.includes(music)}/>
                       ))}
                     </_.LoopLine>
                   </_.LoopLineWrapper>
@@ -81,7 +86,7 @@ const ChoicePreference = () => {
             <_.SubText>Your playlist changes with your style.</_.SubText>
           </_.SectionFirstDiv>
         </_.sectionFrist>
-        <_.SubmitBtnContainer>
+        <_.SubmitBtnContainer onClick={()=>console.log(selectedList)}>
           <SubmitBtn
             text={"Go To Next"}
             icon={"Arrow_Forward"}
