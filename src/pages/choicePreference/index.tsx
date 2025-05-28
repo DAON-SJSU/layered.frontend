@@ -33,7 +33,7 @@ const ChoicePreference = () => {
         <_.sectionFrist>
           <_.SectionFirstDiv>
             <_.MusicSelectBox>
-              <PreferenceList />
+              <PreferenceList selectedList={selectedList}/>
               <_.TextBox>
                 <_.TextBoxH2>What's your music style?</_.TextBoxH2>
                 <_.TextBoxP>Pick four things you usually listen to</_.TextBoxP>
