@@ -113,8 +113,9 @@ const Palette = () => {
     const maxEmotion = Object.entries(next)
       .reduce((max, [key, value]) => value > max.value ? { key, value } : max, { key: "", value: -Infinity })
       .key;
+    const updatedRequest = { ...request, emotion: maxEmotion };
 
-    navigate(`/result/${maxEmotion.toLowerCase()}`, { state: { request } });
+    navigate(`/result/${maxEmotion.toLowerCase()}`, { state: { request: updatedRequest } });
   }
 
   const currentColor = colors[currentIndex];
