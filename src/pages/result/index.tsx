@@ -26,7 +26,7 @@ const Result = () => {
 
   const handleSendRequest = async () => {
     try {
-      // console.log(request);
+      console.log(request);
       const response = await axios.post(
         "http://172.20.3.59:8000",
         request,
@@ -36,7 +36,7 @@ const Result = () => {
           }
         }
       );
-      // console.log(response);
+      console.log(response);
       setPlaylist(response.data);
       navigate(`/playlist/${emotion}`, { state: { resultPlaylist: response.data } });
     } catch (err) {
@@ -44,25 +44,33 @@ const Result = () => {
     }
   }
 
+  const backtoPalette = () => {
+    navigate("/palette");
+  }
+
 
   if (!config) {
     return <div>잘못된 감정입니다.</div>;
   }
 
-  const { label, image, bgColor, buttonColor } = config;
+  const { label, image, bgColor, buttonColor,headerIcon } = config;
 
   return (
     <_.Mobile bgColor={bgColor}>
       <_.Void />
+      <_.Header>
+              <_.HeaderIcon>{headerIcon}</_.HeaderIcon>
+              <_.HeaderText>Emotion</_.HeaderText>
+            </_.Header>
       <_.MainBody>
         <_.Container>
           <_.SubText>Your heart says...</_.SubText>
           <_.EmotionText>{label}</_.EmotionText>
-          <_.EmotionIcon src={image} alt={label} />
+          <_.EmotionIcon src={image} alt={label} animate={{ y: [0, -10, 0] }} transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}/>
           <_.PlaylistButton buttonColor={buttonColor} onClick={handleSendRequest}>
             Check Your Playlist
           </_.PlaylistButton>
-          <_.RetryText>No Thanks, I wanna try again.</_.RetryText>
+          <_.RetryText onClick={backtoPalette}>No Thanks, I wanna try again.</_.RetryText>
         </_.Container>
       </_.MainBody>
     </_.Mobile>
