@@ -3,12 +3,12 @@ import * as _ from './style';
 import Play from '../../assets/etc/PlayBtn.png';
 import Music from "../../components/music";
 import { musicList } from './data';
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import YouTube, { type YouTubeProps } from 'react-youtube';
 import { getYoutubeId, onStateChange } from './util';
 import FooterPlaylist from "../../components/playlist/footerPlaylist";
 import FullscreenPlaylist from "../../components/playlist/fullscreenPlaylist";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { emotionMap } from "./emotionMap";
 import PlaylistMusicType from "../../components/playlistMusicType";
 
@@ -33,6 +33,15 @@ const Playlist = () => {
     }
 
     const { label, image, bgTop, bgBottom } = config;
+
+    const location = useLocation();
+    const { resultPlaylist } = location.state || {};
+    // console.log(resultPlaylist);
+    
+    useEffect(()=>
+        setPlaylist(resultPlaylist),
+    []);
+    
 
     // 일시정지/재생 토글
     const handlePauseToggle = () => {

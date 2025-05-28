@@ -22,11 +22,11 @@ const Result = () => {
   const { request } = location.state || {};
   const navigate = useNavigate();
 
-  const [playlist, setPlaylist] = useState<PlaylistType>([]);
+  const [resultPlaylist, setPlaylist] = useState<PlaylistType>([]);
 
   const handleSendRequest = async () => {
     try {
-      console.log(request);
+      // console.log(request);
       const response = await axios.post(
         "http://172.20.3.59:8000",
         request,
@@ -36,9 +36,9 @@ const Result = () => {
           }
         }
       );
-      console.log(response);
+      // console.log(response);
       setPlaylist(response.data);
-      // navigate(`result/${emotion}`, { state: { playlist } });
+      navigate(`/playlist/${emotion}`, { state: { resultPlaylist: response.data } });
     } catch (err) {
       console.log(err);
     }
