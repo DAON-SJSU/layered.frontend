@@ -1,9 +1,7 @@
 import HeaderBar from "../../components/headerBar";
 import * as _ from './style';
 import Play from '../../assets/etc/PlayBtn.png';
-import MusicType from "../../components/musicType";
 import Music from "../../components/music";
-import AngerImg from '../../assets/emotions/Anger.png';
 import { musicList } from './data';
 import { useRef, useState } from "react";
 import YouTube, { type YouTubeProps } from 'react-youtube';

@@ -24,12 +24,15 @@ export const TypeText = styled.p`
 export const TagContainer = styled.div`
     display: flex;
     height: 20px;
-    padding: 0px 7px;
     align-items: center;
     gap: 4px;
-    border-radius: 20px;
     background: rgba(0, 0, 0, 0.50);
     backdrop-filter: blur(2px);
+    padding: var(--Gap-8) var(--Gap-16);
+    justify-content: center;
+    border-radius: var(--Radius-Max);
+    flex-shrink: 0;
+    
 `
 
 export const HashText = styled.p`
