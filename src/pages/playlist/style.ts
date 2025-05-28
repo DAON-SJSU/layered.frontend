@@ -8,7 +8,7 @@ export const Container = styled.div`
 `
 
 export const Mobile = styled.main`
-  height: 100vh;
+  height: 100%;
   width: 100%;
   min-height: 100vh;
   max-width: 430px;
@@ -34,7 +34,7 @@ export const TopDiv = styled.div<{bg : string}>`
 export const BottomDiv = styled.div<{bg : string}>`
     display: flex;
     width: 100%;
-    height : 80vh;
+    height : 100%;
     flex-direction: column;
     box-sizing: border-box;
     align-items: flex-start;
