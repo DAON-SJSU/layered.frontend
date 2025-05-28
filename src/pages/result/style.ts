@@ -1,3 +1,4 @@
+// final touch for PR
 import styled from "@emotion/styled";
 
 export const Mobile = styled.main<{ bgColor: string }>`
