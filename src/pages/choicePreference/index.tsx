@@ -9,7 +9,6 @@ export interface PreferenceRequest {
   emotion: string;
   genres: string[];
   tempo: number;
-  length: number;
   orderBy: 'Popularity' | 'Random';
 }
 
@@ -44,7 +43,6 @@ const ChoicePreference = () => {
     emotion,
     genres,
     tempo,
-    length,
     orderBy,
   };
 
