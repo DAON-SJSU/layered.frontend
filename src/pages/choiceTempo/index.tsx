@@ -46,7 +46,7 @@ const ChoiceTempo = () => {
           <SubmitBtn
             text={"Go To Choose Color"}
             icon={"format_paint"}
-            src={""}
+            src={"palette"}
             request={updatedRequest}
           />
         </_.BtnContainer>
